@@ -1,0 +1,19 @@
+{
+  "packages": [
+    "nodejs@latest",
+    "nodePackages.pnpm@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "pnpm i"
+    ],
+    "scripts": {
+      "dev": [
+        "pnpm run dev"
+      ],
+      "build": [
+        "pnpm run build"
+      ]
+    }
+  }
+}
