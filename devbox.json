@@ -13,6 +13,9 @@
       ],
       "build": [
         "pnpm run build"
+      ],
+      "preview": [
+        "pnpm run preview"
       ]
     }
   }
