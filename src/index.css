@@ -11,6 +11,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media screen and (min-width: 768px) {
+    --qg-nav-max-width: 720px;
+  }
+  @media screen and (min-width: 1024px) {
+    --qg-nav-max-width: 960px;
+  }
+  @media screen and (min-width: 1280px) {
+    --qg-nav-max-width: 1140px;
+  }
 }
 
 a {

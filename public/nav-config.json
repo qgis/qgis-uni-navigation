@@ -1,6 +1,6 @@
 {
   "logo": {
-    "icon": "/lit.svg",
+    "icon": "/logo.png",
     "link": "/"
   },
   "navigation": [
@@ -26,13 +26,13 @@
         "name": "I am menu",
         "child": [
           {
-            "type": "first link",
+            "type": "link",
             "settings": {
               "href": "https://example.com"
             }
           },
           {
-            "type": "second button",
+            "type": "button",
             "settings": {
               "href": "https://example.com"
             }

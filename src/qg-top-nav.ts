@@ -9,7 +9,7 @@ async function readConfig(src: string): Promise<HeaderConfig> {
 
 @customElement('qg-top-nav')
 export class QGTopNav extends LitElement {
-  @property({type: String})
+  @property({ type: String })
   accessor src = '/nav-config.json';
 
   @state()
@@ -19,18 +19,15 @@ export class QGTopNav extends LitElement {
   async connectedCallback() {
     super.connectedCallback();
     const config = await readConfig(this.src);
-    match('/user/:id', { decode: decodeURIComponent });
     this.config = config;
   }
 
   drawLogo() {
     const logo = this.config?.logo ?? null;
     return logo
-      ? html`<a
-          class="logo"
-          style="--logo-img: url('${logo.icon}')"
-          href=${logo.link}
-        ></a>`
+      ? html`<a class="link" style="--logo-img: url('${logo.icon}')" href=${logo.link}>
+          <div class="logo"></div>
+        </a>`
       : '';
   }
 
@@ -42,7 +39,8 @@ export class QGTopNav extends LitElement {
       return matcher(window.location.pathname) ? true : false;
     };
     return navigation
-      ? html`<nav class="navigation">
+      ? html`<nav class="navigation" role="navigation" aria-label="main navigation">
+          ${this.drawLogo()}
           ${navigation.map((ctrl) => {
             switch (ctrl.type) {
               case 'link':
@@ -62,7 +60,7 @@ export class QGTopNav extends LitElement {
   }
 
   render() {
-    return html`<header class="header">${this.drawLogo()} ${this.drawMenu()}</header> `;
+    return html`<header class="header">${this.drawMenu()}</header> `;
   }
 
   static styles = css`
@@ -73,17 +71,15 @@ export class QGTopNav extends LitElement {
     }
 
     .header {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      padding: 8px;
-      background-color: #1a1a1a;
-      color: #999
+      padding: 0 8px;
+      background-color: #fff;
+      color: #000;
+      box-shadow: 5px 5px 5px 0 #00000020;
     }
 
     .logo {
-      height: 32px;
-      width: 64px;
+      height: 31px;
+      width: 94px;
       margin-right: 1em;
       display: inline-block;
       padding: 8px;
@@ -97,13 +93,21 @@ export class QGTopNav extends LitElement {
     .navigation {
       display: flex;
       flex-flow: row nowrap;
-      align-items: center;
+      align-items: stretch;
       gap: 1em;
+
+      width: 100%;
+      margin: 0 auto;
+      max-width: var(--qg-nav-max-width, auto);
+      min-height: var(--qg-nav-min-height, 4.75rem);
     }
 
     .navigation .link {
       text-decoration: none;
       color: inherit;
+      padding: 0.5rem 1.75rem;
+      display: flex;
+      align-items: center;
     }
 
     .navigation .active {
@@ -120,7 +124,7 @@ export class QGTopNav extends LitElement {
       cursor: pointer;
       transition: border-color 0.25s;
       background-color: transparent;
-      color: inherit
+      color: inherit;
     }
 
     button:hover {
