@@ -1,7 +1,7 @@
-import { LitElement, css, html } from 'lit';
+import { LitElement, TemplateResult, css, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { match } from 'path-to-regexp';
-import type { LogoConfig, HeaderConfig } from './NavConfig';
+import type { LogoConfig, HeaderConfig, NavigationControl } from './NavConfig';
 
 async function readConfig(src: string): Promise<HeaderConfig> {
   return fetch(src).then((r) => r.json());
@@ -25,42 +25,55 @@ export class QGTopNav extends LitElement {
   drawLogo() {
     const logo = this.config?.logo ?? null;
     return logo
-      ? html`<a class="link" style="--logo-img: url('${logo.icon}')" href=${logo.link}>
-          <div class="logo"></div>
+      ? html`<a
+          class="link logo"
+          style="--logo-img: url('${logo.icon}')"
+          href=${logo.link}
+        >
+          <div></div>
         </a>`
       : '';
   }
 
-  drawMenu() {
+  checkActive(test?: string) {
+    if (!test) return false;
+    const matcher = match(test, { decode: decodeURIComponent });
+    return matcher(window.location.pathname) ? true : false;
+  }
+
+  drawMenu(controls: NavigationControl[] = [], isTopLevel = true): TemplateResult<1> {
+    if (!controls) return html``;
+    return html` ${controls.map((ctrl) => {
+      switch (ctrl.type) {
+        case 'link':
+          const active = this.checkActive(ctrl.settings.activeTest) ? 'active' : '';
+          return html`<a href=${ctrl.settings.href} class="link ${active}"
+            >${ctrl.settings.name}</a
+          >`;
+        case 'menu':
+          const top = isTopLevel ? 'top-level' : '';
+          return html`<div class="menu ${top}">
+            <a class="link">${ctrl.settings.name}</a>
+            <div class="dropdown">${this.drawMenu(ctrl.settings.children, false)}</div>
+          </div>`;
+        default:
+          return '';
+      }
+    })}`;
+  }
+
+  drawHeader() {
     const navigation = this.config?.navigation;
-    const checkActive = (test?: string) => {
-      if (!test) return false;
-      const matcher = match(test, { decode: decodeURIComponent });
-      return matcher(window.location.pathname) ? true : false;
-    };
+
     return navigation
       ? html`<nav class="navigation" role="navigation" aria-label="main navigation">
-          ${this.drawLogo()}
-          ${navigation.map((ctrl) => {
-            switch (ctrl.type) {
-              case 'link':
-                return html`<a
-                  href=${ctrl.settings.href}
-                  class="link ${checkActive(ctrl.settings.activeTest) ? 'active' : ''}"
-                  >${ctrl.settings.name}</a
-                >`;
-              case 'menu':
-                return html`<button>${ctrl.settings.name}</button>`;
-              default:
-                return '';
-            }
-          })}
+          ${this.drawLogo()} ${this.drawMenu(navigation)}
         </nav>`
       : '';
   }
 
   render() {
-    return html`<header class="header">${this.drawMenu()}</header> `;
+    return html`<header class="header">${this.drawHeader()}</header> `;
   }
 
   static styles = css`
@@ -71,23 +84,37 @@ export class QGTopNav extends LitElement {
     }
 
     .header {
-      padding: 0 8px;
+      padding: 0 0.5rem;
       background-color: #fff;
       color: #000;
       box-shadow: 5px 5px 5px 0 #00000020;
     }
 
-    .logo {
-      height: 31px;
-      width: 94px;
-      margin-right: 1em;
+    .logo > div {
+      height: 2rem;
+      width: 6rem;
       display: inline-block;
-      padding: 8px;
       background-image: var(--logo-img);
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       box-sizing: border-box;
+    }
+
+    .link {
+      font-size: 1rem;
+      font-weight: 700;
+      color: inherit;
+    }
+
+    .link:hover,
+    .link:focus {
+      color: var(--qg-nav-light-green, #93b023);
+    }
+
+    /* pull the rest of the links to the right */
+    .link.logo {
+      margin-right: auto;
     }
 
     .navigation {
@@ -104,36 +131,56 @@ export class QGTopNav extends LitElement {
 
     .navigation .link {
       text-decoration: none;
-      color: inherit;
       padding: 0.5rem 1.75rem;
       display: flex;
       align-items: center;
+      white-space: nowrap;
     }
 
-    .navigation .active {
-      color: white;
+    /* dropdown menu base styles */
+    .menu {
+      position: relative;
     }
 
-    button {
-      border-radius: 4px;
-      border: 1px solid transparent;
-      padding: 0.6em 1.2em;
-      font-size: 1em;
-      font-weight: 500;
-      font-family: inherit;
+    .menu:hover .link,
+    .menu:focus .link {
       cursor: pointer;
-      transition: border-color 0.25s;
-      background-color: transparent;
-      color: inherit;
     }
 
-    button:hover {
-      border-color: #646cff;
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+      min-width: 100%;
+      padding: 0.5rem 0;
     }
 
-    button:focus,
-    button:focus-visible {
-      outline: 4px auto -webkit-focus-ring-color;
+    .menu:hover .dropdown {
+      display: block;
+    }
+
+    /* top-level dropdown */
+    .menu.top-level {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .menu.top-level > .dropdown {
+      border-top: 0.25rem solid #000;
+    }
+
+    /* sub-level dropdown */
+    .menu:not(.top-level) > .dropdown {
+      left: 100%;
+      top: -0.5rem;
+    }
+
+    /* prevent to show all nested dropdowns when top-level dropdown is hovered */
+    .menu:hover .menu:not(:hover) .dropdown {
+      display: none;
     }
   `;
 }

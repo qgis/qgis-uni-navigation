@@ -5,39 +5,181 @@
   },
   "navigation": [
     {
-      "type": "link",
+      "type": "menu",
       "settings": {
-        "name": "Foo",
-        "href": "/foo",
-        "activeTest": "/foo"
-      }
-    },
-    {
-      "type": "link",
-      "settings": {
-        "name": "Bar",
-        "href": "/bar",
-        "activeTest": "/bar"
+        "name": "Product",
+        "children": [
+          {
+            "type": "link",
+            "settings": {
+              "name": "Applications",
+              "href": "/product/applications",
+              "activeTest": "/product/applications"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Features",
+              "href": "/product/features",
+              "activeTest": "/product/features"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Case Studies",
+              "href": "/product/case-studies",
+              "activeTest": "/product/case-studies"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Plugins",
+              "href": "https://plugins.qgis.org/"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Visual Changelogs",
+              "href": "/product/visual-changelogs",
+              "activeTest": "/product/visual-changelogs"
+            }
+          }
+        ]
       }
     },
     {
       "type": "menu",
       "settings": {
-        "name": "I am menu",
-        "child": [
+        "name": "Community",
+        "children": [
           {
             "type": "link",
             "settings": {
-              "href": "https://example.com"
+              "name": "Ways of Contributing",
+              "href": "/community/contributing",
+              "activeTest": "/community/contributing"
             }
           },
           {
-            "type": "button",
+            "type": "link",
             "settings": {
-              "href": "https://example.com"
+              "name": "Become a Certified Member",
+              "href": "/community/become-a-certified-member",
+              "activeTest": "/community/become-a-certified-member"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "QGIS Foundation",
+              "href": "/community/QGIS-foundation",
+              "activeTest": "/community/QGIS-foundation"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Project Organisation",
+              "href": "/community/project-organisation",
+              "activeTest": "/community/project-organisation"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Members and Donors",
+              "href": "/community/members-and-donors",
+              "activeTest": "/community/members-and-donors"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Members Blog",
+              "href": "https://plugins.qgis.org/planet/"
             }
           }
         ]
+      }
+    },
+    {
+      "type": "link",
+      "settings": {
+        "name": "Download",
+        "href": "/download",
+        "activeTest": "/download"
+      }
+    },
+    {
+      "type": "menu",
+      "settings": {
+        "name": "Resources",
+        "children": [
+          {
+            "type": "link",
+            "settings": {
+              "name": "Documentation",
+              "href": "https://docs.qgis.org/3.28/en/docs/index.html"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Roadmap",
+              "href": "/resources/roadmap",
+              "activeTest": "/resources/roadmap"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Reports",
+              "href": "/resources/reports",
+              "activeTest": "/resources/reports"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Books",
+              "href": "/resources/books",
+              "activeTest": "/resources/books"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Support",
+              "href": "/resources/support",
+              "activeTest": "/resources/support"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "link",
+      "settings": {
+        "name": "Blog",
+        "href": "https://blog.qgis.org"
+      }
+    },
+    {
+      "type": "link",
+      "settings": {
+        "name": "Search",
+        "href": "#search"
+      }
+    },
+    {
+      "type": "link",
+      "settings": {
+        "name": "Donate",
+        "href": "https://donate.qgis.org"
       }
     }
   ]
