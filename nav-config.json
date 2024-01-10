@@ -1,0 +1,44 @@
+{
+  "logo": {
+    "icon": "/logo.png",
+    "link": "/"
+  },
+  "navigation": [
+    {
+      "type": "link",
+      "settings": {
+        "name": "Foo",
+        "href": "/foo",
+        "activeTest": "/foo"
+      }
+    },
+    {
+      "type": "link",
+      "settings": {
+        "name": "Bar",
+        "href": "/bar",
+        "activeTest": "/bar"
+      }
+    },
+    {
+      "type": "menu",
+      "settings": {
+        "name": "I am menu",
+        "child": [
+          {
+            "type": "link",
+            "settings": {
+              "href": "https://example.com"
+            }
+          },
+          {
+            "type": "button",
+            "settings": {
+              "href": "https://example.com"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
