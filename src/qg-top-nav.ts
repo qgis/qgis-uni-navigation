@@ -57,6 +57,10 @@ export class QGTopNav extends LitElement {
             <a class="link">${ctrl.settings.name}</a>
             <div class="dropdown">${this.drawMenu(ctrl.settings.children, false)}</div>
           </div>`;
+        case 'button':
+          return html`<a href=${ctrl.settings.href} class="link button"
+            >${ctrl.settings.name}</a
+          >`;
         default:
           return '';
       }
@@ -82,6 +86,7 @@ export class QGTopNav extends LitElement {
       display: flex;
       flex-flow: column nowrap;
       width: 100%;
+      font-family: Trueno, sans-serif;
     }
 
     .header {
@@ -103,7 +108,6 @@ export class QGTopNav extends LitElement {
     }
 
     .link {
-      font-size: 1rem;
       font-weight: 700;
       color: inherit;
     }
@@ -123,12 +127,13 @@ export class QGTopNav extends LitElement {
       display: flex;
       flex-flow: row nowrap;
       align-items: stretch;
-      gap: 1em;
+      gap: 3rem;
 
       width: 100%;
       margin: 0 auto;
       max-width: var(--qg-nav-max-width, auto);
       min-height: var(--qg-nav-min-height, 4.75rem);
+      font-size: var(--qg-nav-font-size, 14px);
     }
 
     .navigation .link {
@@ -137,6 +142,35 @@ export class QGTopNav extends LitElement {
       display: flex;
       align-items: center;
       white-space: nowrap;
+    }
+
+    .link.button {
+      background-color: var(--qg-nav-light-green, #93b023);
+      color: #fff;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      align-self: center;
+
+      color: #fff;
+
+      font-style: normal;
+      font-weight: 600;
+      line-height: 16px; /* 114.286% */
+      letter-spacing: 0.022px;
+    }
+
+    .menu.top-level > .link::after {
+      content: url('arrow.svg');
+      display: inline-block;
+      margin-left: 0.625rem;
+      margin-top: 0.25rem;
+    }
+
+    .menu:not(.top-level) > .link::after {
+      content: url('arrow.svg');
+      display: inline-block;
+      margin-left: auto;
+      transform: rotate(-90deg);
     }
 
     /* dropdown menu base styles */
