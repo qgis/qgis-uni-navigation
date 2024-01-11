@@ -10,7 +10,7 @@ async function readConfig(src: string): Promise<HeaderConfig> {
 @customElement('qg-top-nav')
 export class QGTopNav extends LitElement {
   @property({ type: String })
-  accessor src = '/nav-config.json';
+  accessor src = `${import.meta.env.BASE_URL}nav-config.json`;
 
   @state()
   protected config: null | HeaderConfig = null;
@@ -24,10 +24,11 @@ export class QGTopNav extends LitElement {
 
   drawLogo() {
     const logo = this.config?.logo ?? null;
+    const logoIcon = logo ? `${import.meta.env.BASE_URL}${logo.icon}` : '';
     return logo
       ? html`<a
           class="link logo"
-          style="--logo-img: url('${logo.icon}')"
+          style="--logo-img: url('${logoIcon}')"
           href=${logo.link}
         >
           <div></div>
@@ -108,7 +109,8 @@ export class QGTopNav extends LitElement {
     }
 
     .link:hover,
-    .link:focus {
+    .link:focus,
+    .link.active {
       color: var(--qg-nav-light-green, #93b023);
     }
 
