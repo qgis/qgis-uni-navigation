@@ -60,7 +60,7 @@ export class QGTopNav extends LitElement {
             return html`<a
               href=${ctrl.settings.href}
               class=${linkClasses}
-              _target="blank"
+              target="_blank"
               noopener
               noreferrer
               >${ctrl.settings.name}</a
