@@ -1,5 +1,6 @@
 import { LitElement, TemplateResult, css, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { match } from 'path-to-regexp';
 import type { LogoConfig, HeaderConfig, NavigationControl } from './NavConfig';
 
@@ -44,23 +45,47 @@ export class QGTopNav extends LitElement {
 
   drawMenu(controls: NavigationControl[] = [], isTopLevel = true): TemplateResult<1> {
     if (!controls) return html``;
+
     return html` ${controls.map((ctrl) => {
       switch (ctrl.type) {
         case 'link':
-          const active = this.checkActive(ctrl.settings.activeTest) ? 'active' : '';
-          return html`<a href=${ctrl.settings.href} class="link ${active}"
+          const isExternal = ctrl.settings.href.startsWith('https');
+          const linkClasses = classMap({
+            link: true,
+            active: this.checkActive(ctrl.settings.activeTest),
+            external: isExternal,
+          });
+
+          if (isExternal) {
+            return html`<a
+              href=${ctrl.settings.href}
+              class=${linkClasses}
+              _target="blank"
+              noopener
+              noreferrer
+              >${ctrl.settings.name}</a
+            >`;
+          }
+
+          return html`<a href=${ctrl.settings.href} class=${linkClasses}
             >${ctrl.settings.name}</a
           >`;
         case 'menu':
-          const top = isTopLevel ? 'top-level' : '';
-          return html`<div class="menu ${top}">
+          const menuClasses = classMap({
+            menu: true,
+            'top-level': isTopLevel,
+          });
+
+          return html`<div class=${menuClasses}>
             <a class="link">${ctrl.settings.name}</a>
             <div class="dropdown">${this.drawMenu(ctrl.settings.children, false)}</div>
           </div>`;
+
         case 'button':
           return html`<a href=${ctrl.settings.href} class="link button"
             >${ctrl.settings.name}</a
           >`;
+
         default:
           return '';
       }
@@ -115,7 +140,7 @@ export class QGTopNav extends LitElement {
     .link:hover,
     .link:focus,
     .link.active {
-      color: var(--qg-nav-light-green, #93b023);
+      color: var(--qg-nav-active-color, #93b023);
     }
 
     /* pull the rest of the links to the right */
@@ -145,7 +170,7 @@ export class QGTopNav extends LitElement {
     }
 
     .link.button {
-      background-color: var(--qg-nav-light-green, #93b023);
+      background-color: var(--qg-nav-active-color, #93b023);
       color: #fff;
       border-radius: 0.5rem;
       padding: 0.75rem 1rem;
@@ -159,15 +184,42 @@ export class QGTopNav extends LitElement {
       letter-spacing: 0.022px;
     }
 
-    .menu.top-level > .link::after {
-      content: url('arrow.svg');
+    .link.external::after {
+      content: '';
+      mask: url('external.svg') no-repeat 50% 50%;
+      mask-size: cover;
+      width: 1rem;
+      height: 1rem;
+      background-color: #000;
+
       display: inline-block;
       margin-left: 0.625rem;
-      margin-top: 0.25rem;
+    }
+
+    .link.external:hover::after,
+    .link.external:focus::after {
+      background-color: currentColor;
+    }
+
+    .menu.top-level > .link::after {
+      content: '';
+      mask: url('arrow.svg') no-repeat 50% 50%;
+      mask-size: cover;
+      width: 1rem;
+      height: 1rem;
+      background-color: #939393;
+      display: inline-block;
+      margin-left: 0.625rem;
+      margin-top: -0.1rem;
     }
 
     .menu:not(.top-level) > .link::after {
-      content: url('arrow.svg');
+      content: '';
+      mask: url('arrow.svg') no-repeat 50% 50%;
+      mask-size: cover;
+      width: 1rem;
+      height: 1rem;
+      background-color: #939393;
       display: inline-block;
       margin-left: auto;
       transform: rotate(-90deg);
@@ -191,7 +243,14 @@ export class QGTopNav extends LitElement {
       background-color: #fff;
       box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
       min-width: 100%;
-      padding: 0.5rem 0;
+      padding: 1rem 0;
+    }
+
+    .dropdown .link {
+      padding: 0 2rem;
+    }
+    .dropdown .link:not(:last-child) {
+      padding-bottom: 2rem;
     }
 
     .menu:hover .dropdown {
