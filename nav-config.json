@@ -143,11 +143,53 @@
             }
           },
           {
-            "type": "link",
+            "type": "menu",
             "settings": {
               "name": "Books",
-              "href": "/resources/books",
-              "activeTest": "/resources/books"
+              "children": [
+                {
+                  "type": "link",
+                  "settings": {
+                    "name": "QGIS Training Manual",
+                    "href": "https://docs.qgis.org/3.28/en/docs/training_manual/index.html"
+                  }
+                },
+                {
+                  "type": "link",
+                  "settings": {
+                    "name": "PyQGIS Developer Cookbook",
+                    "href": "https://docs.qgis.org/3.28/en/docs/pyqgis_developer_cookbook/index.html"
+                  }
+                },
+                {
+                  "type": "link",
+                  "settings": {
+                    "name": "QGIS User Guide",
+                    "href": "https://docs.qgis.org/3.28/en/docs/user_manual/index.html"
+                  }
+                },
+                {
+                  "type": "link",
+                  "settings": {
+                    "name": "QGIS Training Manual",
+                    "href": "https://docs.qgis.org/3.28/en/docs/training_manual/index.html"
+                  }
+                },
+                {
+                  "type": "link",
+                  "settings": {
+                    "name": "PyQGIS Developer Cookbook",
+                    "href": "https://docs.qgis.org/3.28/en/docs/pyqgis_developer_cookbook/index.html"
+                  }
+                },
+                {
+                  "type": "link",
+                  "settings": {
+                    "name": "QGIS User Guide",
+                    "href": "https://docs.qgis.org/3.28/en/docs/user_manual/index.html"
+                  }
+                }
+              ]
             }
           },
           {
@@ -157,15 +199,15 @@
               "href": "/resources/support",
               "activeTest": "/resources/support"
             }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Blog",
+              "href": "https://blog.qgis.org"
+            }
           }
         ]
-      }
-    },
-    {
-      "type": "link",
-      "settings": {
-        "name": "Blog",
-        "href": "https://blog.qgis.org"
       }
     },
     {
