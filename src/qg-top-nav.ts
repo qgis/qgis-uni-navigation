@@ -1,4 +1,4 @@
-import { LitElement, TemplateResult, css, html } from 'lit';
+import { LitElement, TemplateResult, css, html, unsafeCSS } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { match } from 'path-to-regexp';
@@ -288,7 +288,7 @@ export class QGTopNav extends LitElement {
 
     .link.external::after {
       content: '';
-      mask: url('/external.svg') no-repeat 50% 50%;
+      mask: url('${unsafeCSS(import.meta.env.BASE_URL)}external.svg') no-repeat 50% 50%;
       mask-size: cover;
       width: 1rem;
       height: 1rem;
@@ -305,7 +305,7 @@ export class QGTopNav extends LitElement {
 
     .menu > .link::after {
       content: '';
-      mask: url('/arrow.svg') no-repeat 50% 50%;
+      mask: url('${unsafeCSS(import.meta.env.BASE_URL)}arrow.svg') no-repeat 50% 50%;
       mask-size: cover;
       width: 1rem;
       height: 1rem;
@@ -439,7 +439,6 @@ export class QGTopNav extends LitElement {
       display: flex;
     }
     :host([data-screen='mobile']) .navigation {
-      min-height: var(--qg-nav-min-height, 3rem);
       align-items: center;
     }
 
