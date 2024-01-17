@@ -273,7 +273,6 @@ var le=(n,e,t)=>{if(!e.has(n))throw TypeError("Cannot "+t)};var ce=(n,e,t)=>(le(
       display: flex;
     }
     :host([data-screen='mobile']) .navigation {
-      min-height: var(--qg-nav-min-height, 3rem);
       align-items: center;
     }
 
