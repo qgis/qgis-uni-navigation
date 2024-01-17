@@ -21,6 +21,31 @@ export class QGTopNav extends LitElement {
     super.connectedCallback();
     const config = await readConfig(this.src);
     this.config = config;
+
+    // If the data-screen attribute is set by the user, we don't want to change it automatically
+    if (this.getAttribute('data-screen') === 'mobile') return;
+    this.handleWindowResize();
+    window.addEventListener('resize', this.handleWindowResize.bind(this));
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('resize', this.handleWindowResize.bind(this));
+    super.disconnectedCallback();
+  }
+
+  handleWindowResize() {
+    const { breakpoint } = this.config ?? {};
+    if (!breakpoint) return;
+
+    const width = window.innerWidth;
+
+    if (width < breakpoint) {
+      this.setAttribute('data-screen', 'mobile');
+    } else {
+      this.removeAttribute('data-screen');
+      this._handleCloseMobileMenu();
+      this._handleCloseMobileSubMenus();
+    }
   }
 
   drawLogo() {
@@ -76,7 +101,7 @@ export class QGTopNav extends LitElement {
             'top-level': isTopLevel,
           });
 
-          return html`<div class=${menuClasses}>
+          return html`<div class=${menuClasses} @click=${this._handleClickMobileSubMenu}>
             <a class="link">${ctrl.settings.name}</a>
             <div class="dropdown">${this.drawMenu(ctrl.settings.children, false)}</div>
           </div>`;
@@ -92,18 +117,89 @@ export class QGTopNav extends LitElement {
     })}`;
   }
 
+  _handleBurgerClick(e: Event) {
+    const target = e.currentTarget as HTMLElement;
+    const expanded = target.getAttribute('aria-expanded') === 'true';
+    target.setAttribute('aria-expanded', (!expanded).toString());
+    target.classList.toggle('active');
+
+    const mobileMenu = this.shadowRoot?.querySelector('#mobile-menu');
+    if (!mobileMenu) return;
+
+    mobileMenu.classList.toggle('active');
+  }
+
+  _handleCloseMobileMenu() {
+    const mobileMenu = this.shadowRoot?.querySelector('#mobile-menu');
+    if (!mobileMenu) return;
+
+    mobileMenu.classList.remove('active');
+    const burger = this.shadowRoot?.querySelector('#burger');
+    if (!burger) return;
+
+    burger.classList.remove('active');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+
+  _handleClickMobileSubMenu(e: Event) {
+    e.stopPropagation();
+    const target = e.currentTarget as HTMLElement;
+    const targetExpanded = target.getAttribute('aria-expanded') === 'true';
+    target.setAttribute('aria-expanded', (!targetExpanded).toString());
+
+    const dropdown = target.querySelector('.dropdown');
+    if (!dropdown) return;
+
+    const expanded = dropdown.getAttribute('data-expanded') === 'true';
+    dropdown.setAttribute('data-expanded', (!expanded).toString());
+  }
+
+  _handleCloseMobileSubMenus() {
+    const menus = this.shadowRoot?.querySelectorAll('.mobile .menu');
+    menus?.forEach((menu) => menu.setAttribute('aria-expanded', 'false'));
+    const dropdowns = this.shadowRoot?.querySelectorAll('.mobile .dropdown');
+    dropdowns?.forEach((dropdown) => dropdown.setAttribute('data-expanded', 'false'));
+  }
+
+  drawBurger() {
+    return html`<a
+      id="burger"
+      @click="${this._handleBurgerClick}"
+      role="button"
+      class="burger"
+      aria-label="mobile burger menu"
+      aria-expanded="false"
+      data-target="mobile-menu"
+      ><span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span
+    ></a>`;
+  }
+
+  drawMobileMenu() {
+    const navigation = this.config?.navigation;
+
+    return html`<div id="mobile-menu" class="mobile">
+      ${this.drawMenu(navigation, false)}
+    </div>`;
+  }
+
   drawHeader() {
     const navigation = this.config?.navigation;
 
     return navigation
       ? html`<nav class="navigation" role="navigation" aria-label="main navigation">
-          ${this.drawLogo()} ${this.drawMenu(navigation)}
+          ${this.drawLogo()}
+          <div class="desktop">${this.drawMenu(navigation)}</div>
+          ${this.drawBurger()}
         </nav>`
       : '';
   }
 
   render() {
-    return html`<header class="header">${this.drawHeader()}</header> `;
+    return html`<header class="header">
+      ${this.drawHeader()} ${this.drawMobileMenu()}
+    </header> `;
   }
 
   static styles = css`
@@ -112,6 +208,7 @@ export class QGTopNav extends LitElement {
       flex-flow: column nowrap;
       width: 100%;
       font-family: Trueno, sans-serif;
+      user-select: none;
     }
 
     .header {
@@ -119,11 +216,12 @@ export class QGTopNav extends LitElement {
       background-color: #fff;
       color: #000;
       box-shadow: 5px 5px 5px 0 #00000020;
+      position: relative;
     }
 
     .logo > div {
       height: 2rem;
-      width: 6rem;
+      width: 6.25rem;
       display: inline-block;
       background-image: var(--logo-img);
       background-size: contain;
@@ -132,9 +230,23 @@ export class QGTopNav extends LitElement {
       box-sizing: border-box;
     }
 
-    .link {
-      font-weight: 700;
-      color: inherit;
+    .navigation {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: stretch;
+
+      width: 100%;
+      margin: 0 auto;
+      max-width: var(--qg-nav-max-width, auto);
+      min-height: var(--qg-nav-min-height, 4rem);
+      font-size: var(--qg-nav-font-size, 14px);
+    }
+
+    .desktop {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: stretch;
+      gap: 3rem;
     }
 
     .link:hover,
@@ -148,25 +260,17 @@ export class QGTopNav extends LitElement {
       margin-right: auto;
     }
 
-    .navigation {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: stretch;
-      gap: 3rem;
-
-      width: 100%;
-      margin: 0 auto;
-      max-width: var(--qg-nav-max-width, auto);
-      min-height: var(--qg-nav-min-height, 4.75rem);
-      font-size: var(--qg-nav-font-size, 14px);
-    }
-
-    .navigation .link {
+    .link {
+      color: inherit;
       text-decoration: none;
-      padding: 0.5rem 1.75rem;
       display: flex;
       align-items: center;
       white-space: nowrap;
+    }
+
+    .desktop .link {
+      font-weight: 700;
+      padding: 0 1.75rem;
     }
 
     .link.button {
@@ -176,8 +280,6 @@ export class QGTopNav extends LitElement {
       padding: 0.75rem 1rem;
       align-self: center;
 
-      color: #fff;
-
       font-style: normal;
       font-weight: 600;
       line-height: 16px; /* 114.286% */
@@ -186,7 +288,7 @@ export class QGTopNav extends LitElement {
 
     .link.external::after {
       content: '';
-      mask: url('external.svg') no-repeat 50% 50%;
+      mask: url('/external.svg') no-repeat 50% 50%;
       mask-size: cover;
       width: 1rem;
       height: 1rem;
@@ -201,28 +303,46 @@ export class QGTopNav extends LitElement {
       background-color: currentColor;
     }
 
-    .menu.top-level > .link::after {
+    .menu > .link::after {
       content: '';
-      mask: url('arrow.svg') no-repeat 50% 50%;
+      mask: url('/arrow.svg') no-repeat 50% 50%;
       mask-size: cover;
       width: 1rem;
       height: 1rem;
       background-color: #939393;
       display: inline-block;
-      margin-left: 0.625rem;
+    }
+
+    .link::after {
+      margin-left: 0.5rem;
+      transition: 0.4s ease-in-out;
+    }
+
+    .menu.top-level > .link::after {
       margin-top: -0.1rem;
     }
 
-    .menu:not(.top-level) > .link::after {
-      content: '';
-      mask: url('arrow.svg') no-repeat 50% 50%;
-      mask-size: cover;
-      width: 1rem;
-      height: 1rem;
-      background-color: #939393;
-      display: inline-block;
+    .desktop .menu:not(.top-level) > .link::after {
       margin-left: auto;
       transform: rotate(-90deg);
+    }
+
+    .mobile {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: #fff;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+      border-top: 0.25rem solid #000;
+      padding: 1rem 2rem;
+      flex-flow: column nowrap;
+      gap: 2rem;
+      transition: 0.4s ease-in-out;
+    }
+
+    .mobile.active {
+      right: 0;
     }
 
     /* dropdown menu base styles */
@@ -235,7 +355,7 @@ export class QGTopNav extends LitElement {
       cursor: pointer;
     }
 
-    .dropdown {
+    .desktop .dropdown {
       display: none;
       position: absolute;
       top: 100%;
@@ -246,14 +366,14 @@ export class QGTopNav extends LitElement {
       padding: 1rem 0;
     }
 
-    .dropdown .link {
+    .desktop .dropdown .link {
       padding: 0 2rem;
     }
-    .dropdown .link:not(:last-child) {
+    .desktop .dropdown .link:not(:last-child) {
       padding-bottom: 2rem;
     }
 
-    .menu:hover .dropdown {
+    .desktop .menu:hover .dropdown {
       display: block;
     }
 
@@ -274,8 +394,90 @@ export class QGTopNav extends LitElement {
     }
 
     /* prevent to show all nested dropdowns when top-level dropdown is hovered */
-    .menu:hover .menu:not(:hover) .dropdown {
+    .desktop .menu:hover .menu:not(:hover) .dropdown {
       display: none;
+    }
+
+    /* adaptive mobile styles */
+
+    .burger {
+      display: none;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      width: 45px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .burger span {
+      display: block;
+      width: 100%;
+      height: 4px;
+      background-color: #000;
+      border-radius: 2px;
+      transition: 0.4s;
+      transform-origin: center;
+    }
+
+    .burger.active span:nth-child(1) {
+      transform: translateY(13px) rotate(45deg);
+    }
+    .burger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .burger.active span:nth-child(3) {
+      transform: translateY(-13px) rotate(-45deg);
+    }
+
+    :host([data-screen='mobile']) .desktop {
+      display: none;
+    }
+    :host([data-screen='mobile']) .header {
+      padding: 0 1rem;
+    }
+    :host([data-screen='mobile']) .burger {
+      display: flex;
+    }
+    :host([data-screen='mobile']) .navigation {
+      min-height: var(--qg-nav-min-height, 3rem);
+      align-items: center;
+    }
+
+    .mobile .menu,
+    .mobile .dropdown {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    .mobile .dropdown {
+      gap: 2rem;
+    }
+
+    .mobile .dropdown {
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+    }
+
+    .mobile .dropdown > :first-child {
+      margin-top: 2rem;
+    }
+
+    .mobile .link.button {
+      align-self: flex-start;
+    }
+
+    .mobile .menu > .link,
+    .mobile > .link {
+      font-weight: 700;
+    }
+
+    .mobile .menu[aria-expanded='true'] > .link::after {
+      transform: rotate(180deg);
+    }
+
+    .mobile .dropdown[data-expanded='true'] {
+      max-height: 100vh;
     }
   `;
 }

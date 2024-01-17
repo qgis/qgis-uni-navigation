@@ -33,5 +33,6 @@ export interface MenuControl {
 
 export interface HeaderConfig {
   logo?: LogoConfig;
+  breakpoint?: number;
   navigation?: NavigationControl[];
 }
