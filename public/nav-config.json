@@ -3,7 +3,6 @@
     "icon": "logo.png",
     "link": "/"
   },
-  "breakpoint": 1024,
   "navigation": [
     {
       "type": "menu",

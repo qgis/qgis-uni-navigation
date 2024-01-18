@@ -13,6 +13,9 @@ export class QGTopNav extends LitElement {
   @property({ type: String })
   accessor src = `${import.meta.env.BASE_URL}nav-config.json`;
 
+  @property({ type: Number })
+  accessor breakpoint = 1024;
+
   @state()
   protected config: null | HeaderConfig = null;
   protected logo: null | LogoConfig = null;
@@ -34,12 +37,11 @@ export class QGTopNav extends LitElement {
   }
 
   handleWindowResize() {
-    const { breakpoint } = this.config ?? {};
-    if (!breakpoint) return;
+    if (!this.breakpoint) return;
 
     const width = window.innerWidth;
 
-    if (width < breakpoint) {
+    if (width < this.breakpoint) {
       this.setAttribute('data-screen', 'mobile');
     } else {
       this.removeAttribute('data-screen');
