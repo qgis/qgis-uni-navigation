@@ -268,6 +268,7 @@ export class QGTopNav extends LitElement {
       display: flex;
       align-items: center;
       white-space: nowrap;
+      transition: 0.2s;
     }
 
     .desktop .link {
@@ -317,7 +318,6 @@ export class QGTopNav extends LitElement {
 
     .link::after {
       margin-left: 0.5rem;
-      transition: 0.4s ease-in-out;
     }
 
     .menu.top-level > .link::after {
