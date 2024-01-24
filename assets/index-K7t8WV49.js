@@ -100,6 +100,7 @@ var ue=(n,e,t)=>{if(!e.has(n))throw TypeError("Cannot "+t)};var te=(n,e,t)=>(ue(
       display: flex;
       align-items: center;
       white-space: nowrap;
+      transition: 0.2s;
     }
 
     .desktop .link {
@@ -149,7 +150,6 @@ var ue=(n,e,t)=>{if(!e.has(n))throw TypeError("Cannot "+t)};var te=(n,e,t)=>(ue(
 
     .link::after {
       margin-left: 0.5rem;
-      transition: 0.4s ease-in-out;
     }
 
     .menu.top-level > .link::after {
@@ -173,6 +173,8 @@ var ue=(n,e,t)=>{if(!e.has(n))throw TypeError("Cannot "+t)};var te=(n,e,t)=>(ue(
       flex-flow: column nowrap;
       gap: 2rem;
       transition: 0.4s ease-in-out;
+      max-height: calc(100vh - 200%);
+      overflow: auto;
     }
 
     .mobile.active {
