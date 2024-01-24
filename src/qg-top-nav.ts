@@ -341,6 +341,8 @@ export class QGTopNav extends LitElement {
       flex-flow: column nowrap;
       gap: 2rem;
       transition: 0.4s ease-in-out;
+      max-height: calc(100vh - 200%);
+      overflow: auto;
     }
 
     .mobile.active {
