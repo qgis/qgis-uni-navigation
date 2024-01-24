@@ -122,6 +122,7 @@ export class QGTopNav extends LitElement {
   _handleBurgerClick(e: Event) {
     const target = e.currentTarget as HTMLElement;
     const expanded = target.getAttribute('aria-expanded') === 'true';
+
     target.setAttribute('aria-expanded', (!expanded).toString());
     target.classList.toggle('active');
 
@@ -129,6 +130,9 @@ export class QGTopNav extends LitElement {
     if (!mobileMenu) return;
 
     mobileMenu.classList.toggle('active');
+
+    // close all submenus on close
+    if (expanded) this._handleCloseMobileSubMenus();
   }
 
   _handleCloseMobileMenu() {
