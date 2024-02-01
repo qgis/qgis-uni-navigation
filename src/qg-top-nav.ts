@@ -276,7 +276,7 @@ export class QGTopNav extends LitElement {
     }
 
     .desktop .link {
-      font-weight: 700;
+      font-weight: 600;
       padding: 0 1.75rem;
     }
 
@@ -476,7 +476,7 @@ export class QGTopNav extends LitElement {
 
     .mobile .menu > .link,
     .mobile > .link {
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .mobile .menu[aria-expanded='true'] > .link::after {
