@@ -228,8 +228,8 @@ export class QGTopNav extends LitElement {
     }
 
     .logo > div {
-      height: 2rem;
-      width: 6.25rem;
+      height: 1.5rem;
+      width: 5.25rem;
       display: inline-block;
       background-image: var(--logo-img);
       background-size: contain;
@@ -384,7 +384,7 @@ export class QGTopNav extends LitElement {
     }
 
     .desktop .dropdown .link {
-      padding: 1rem 1.5rem;
+      padding: 0.75rem 1.5rem;
       font-weight: 400;
     }
 
