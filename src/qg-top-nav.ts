@@ -16,6 +16,9 @@ export class QGTopNav extends LitElement {
   @property({ type: Number })
   accessor breakpoint = 1024;
 
+  @property({ type: String, attribute: 'location-prefix' })
+  accessor locationPrefix = '';
+
   @state()
   protected config: null | HeaderConfig = null;
   protected logo: null | LogoConfig = null;
@@ -94,9 +97,8 @@ export class QGTopNav extends LitElement {
             >`;
           }
 
-          return html`<a href=${ctrl.settings.href} class=${linkClasses}
-            >${ctrl.settings.name}</a
-          >`;
+          const href = this.locationPrefix + ctrl.settings.href;
+          return html`<a href=${href} class=${linkClasses}>${ctrl.settings.name}</a>`;
         case 'menu':
           const menuClasses = classMap({
             menu: true,
