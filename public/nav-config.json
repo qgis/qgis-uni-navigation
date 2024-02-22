@@ -188,7 +188,8 @@
       "type": "button",
       "settings": {
         "name": "Donate",
-        "href": "https://donate.qgis.org"
+        "href": "/donate",
+        "activeTest": "/donate"
       }
     }
   ]
