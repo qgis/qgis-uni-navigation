@@ -1,6 +1,6 @@
 {
   "logo": {
-    "icon": "logo.png",
+    "icon": "logo.svg",
     "link": "/"
   },
   "navigation": [
@@ -12,23 +12,15 @@
           {
             "type": "link",
             "settings": {
-              "name": "Applications",
-              "href": "/product/applications",
-              "activeTest": "/product/applications"
+              "name": "Overview",
+              "href": "/product/overview",
+              "activeTest": "/product/overview"
             }
           },
           {
             "type": "link",
             "settings": {
-              "name": "Features",
-              "href": "/product/features",
-              "activeTest": "/product/features"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Case Studies",
+              "name": "Case studies",
               "href": "/product/case-studies",
               "activeTest": "/product/case-studies"
             }
@@ -59,41 +51,41 @@
           {
             "type": "link",
             "settings": {
-              "name": "Ways of Contributing",
-              "href": "/community/contributing",
-              "activeTest": "/community/contributing"
+              "name": "Get involved",
+              "href": "/community/involve",
+              "activeTest": "/community/involve"
             }
           },
           {
             "type": "link",
             "settings": {
               "name": "Become a Certified Member",
-              "href": "/community/become-a-certified-member",
-              "activeTest": "/community/become-a-certified-member"
+              "href": "/community/certification",
+              "activeTest": "/community/certification"
             }
           },
           {
             "type": "link",
             "settings": {
               "name": "QGIS Foundation",
-              "href": "/community/QGIS-foundation",
-              "activeTest": "/community/QGIS-foundation"
+              "href": "/community/foundation",
+              "activeTest": "/community/foundation"
             }
           },
           {
             "type": "link",
             "settings": {
               "name": "Project Organisation",
-              "href": "/community/project-organisation",
-              "activeTest": "/community/project-organisation"
+              "href": "/community/organisation",
+              "activeTest": "/community/organisation"
             }
           },
           {
             "type": "link",
             "settings": {
               "name": "Members and Donors",
-              "href": "/community/members-and-donors",
-              "activeTest": "/community/members-and-donors"
+              "href": "/community/members",
+              "activeTest": "/community/members"
             }
           },
           {
@@ -122,8 +114,32 @@
           {
             "type": "link",
             "settings": {
+              "name": "QGIS Resources",
+              "href": "/resources/hub",
+              "activeTest": "/resources/hub"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Installation Guide",
+              "href": "/resources/installation-guide",
+              "activeTest": "/resources/installation-guide"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
               "name": "Documentation",
-              "href": "https://docs.qgis.org/3.28/en/docs/index.html"
+              "href": "https://docs.qgis.org/latest/en/docs/index.html"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Releases",
+              "href": "/resources/releases",
+              "activeTest": "/resources/releases"
             }
           },
           {
@@ -146,7 +162,8 @@
             "type": "link",
             "settings": {
               "name": "Books",
-              "href": "/resources/books"
+              "href": "/resources/books",
+              "activeTest": "/resources/books"
             }
           },
           {
@@ -171,7 +188,8 @@
       "type": "button",
       "settings": {
         "name": "Donate",
-        "href": "https://donate.qgis.org"
+        "href": "/donate",
+        "activeTest": "/donate"
       }
     }
   ]
