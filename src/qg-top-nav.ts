@@ -228,8 +228,8 @@ export class QGTopNav extends LitElement {
     }
 
     .logo > div {
-      height: 2rem;
-      width: 6.25rem;
+      height: 1.5rem;
+      width: 5.25rem;
       display: inline-block;
       background-image: var(--logo-img);
       background-size: contain;
@@ -254,13 +254,13 @@ export class QGTopNav extends LitElement {
       display: flex;
       flex-flow: row nowrap;
       align-items: stretch;
-      gap: 3rem;
+      gap: 1.5rem;
     }
 
     .link:hover,
     .link:focus,
     .link.active {
-      color: var(--qg-nav-active-color, #93b023);
+      color: var(--qg-nav-active-color, #3A9800);
     }
 
     /* pull the rest of the links to the right */
@@ -283,16 +283,19 @@ export class QGTopNav extends LitElement {
     }
 
     .link.button {
-      background-color: var(--qg-nav-active-color, #93b023);
+      background-color: var(--qg-nav-active-color, #589632);
       color: #fff;
       border-radius: 0.5rem;
       padding: 0.75rem 1rem;
       align-self: center;
-
       font-style: normal;
       font-weight: 600;
       line-height: 16px; /* 114.286% */
       letter-spacing: 0.022px;
+    }
+
+    .link.button:hover {
+      background-color: var(--qg-nav-active-color, #528c2f);
     }
 
     .link.external::after {
@@ -318,9 +321,13 @@ export class QGTopNav extends LitElement {
       mask-size: cover;
       width: 1rem;
       height: 1rem;
-      background-color: #939393;
+      background-color: #002033;
       display: inline-block;
     }
+    .menu > .link:hover::after {
+      background-color: #3A9800;
+    }
+    
 
     .link::after {
       margin-left: 0.5rem;
@@ -342,7 +349,7 @@ export class QGTopNav extends LitElement {
       right: -100%;
       background-color: #fff;
       box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
-      border-top: 0.25rem solid #000;
+      border-top: 1px solid #e3e3e3;
       padding: 1rem 2rem;
       flex-flow: column nowrap;
       gap: 2rem;
@@ -373,14 +380,12 @@ export class QGTopNav extends LitElement {
       background-color: #fff;
       box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
       min-width: 100%;
-      padding: 1rem 0;
+      padding: 0.5rem 0;
     }
 
     .desktop .dropdown .link {
-      padding: 0 2rem;
-    }
-    .desktop .dropdown .link:not(:last-child) {
-      padding-bottom: 2rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 400;
     }
 
     .desktop .menu:hover .dropdown {
@@ -394,7 +399,7 @@ export class QGTopNav extends LitElement {
     }
 
     .menu.top-level > .dropdown {
-      border-top: 0.25rem solid #000;
+      border-top: 1px solid #e3e3e3;
     }
 
     /* sub-level dropdown */
@@ -469,7 +474,7 @@ export class QGTopNav extends LitElement {
     }
 
     .mobile .dropdown > :first-child {
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .mobile .link.button {
