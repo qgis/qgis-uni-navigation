@@ -56,12 +56,9 @@ export class QGTopNav extends LitElement {
   drawLogo() {
     const logo = this.config?.logo ?? null;
     const logoIcon = logo ? `${import.meta.env.BASE_URL}${logo.icon}` : '';
+    const logoLink = logo ? logo.link + this.locationPrefix : '';
     return logo
-      ? html`<a
-          class="link logo"
-          style="--logo-img: url('${logoIcon}')"
-          href=${logo.link}
-        >
+      ? html`<a class="link logo" style="--logo-img: url('${logoIcon}')" href=${logoLink}>
           <div></div>
         </a>`
       : '';
@@ -111,7 +108,8 @@ export class QGTopNav extends LitElement {
           </div>`;
 
         case 'button':
-          return html`<a href=${ctrl.settings.href} class="link button"
+          const buttonLink = ctrl.settings.href + this.locationPrefix;
+          return html`<a href=${buttonLink} class="link button"
             >${ctrl.settings.name}</a
           >`;
 
@@ -260,7 +258,7 @@ export class QGTopNav extends LitElement {
     .link:hover,
     .link:focus,
     .link.active {
-      color: var(--qg-nav-active-color, #3A9800);
+      color: var(--qg-nav-active-color, #3a9800);
     }
 
     /* pull the rest of the links to the right */
@@ -325,9 +323,8 @@ export class QGTopNav extends LitElement {
       display: inline-block;
     }
     .menu > .link:hover::after {
-      background-color: #3A9800;
+      background-color: #3a9800;
     }
-    
 
     .link::after {
       margin-left: 0.5rem;
