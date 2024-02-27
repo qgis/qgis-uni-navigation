@@ -56,7 +56,7 @@ export class QGTopNav extends LitElement {
   drawLogo() {
     const logo = this.config?.logo ?? null;
     const logoIcon = logo ? `${import.meta.env.BASE_URL}${logo.icon}` : '';
-    const logoLink = logo ? logo.link + this.locationPrefix : '';
+    const logoLink = logo ? this.locationPrefix + logo.link : '';
     return logo
       ? html`<a class="link logo" style="--logo-img: url('${logoIcon}')" href=${logoLink}>
           <div></div>
@@ -108,7 +108,7 @@ export class QGTopNav extends LitElement {
           </div>`;
 
         case 'button':
-          const buttonLink = ctrl.settings.href + this.locationPrefix;
+          const buttonLink = this.locationPrefix + ctrl.settings.href;
           return html`<a href=${buttonLink} class="link button"
             >${ctrl.settings.name}</a
           >`;
