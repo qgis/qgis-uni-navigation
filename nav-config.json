@@ -83,14 +83,6 @@
           {
             "type": "link",
             "settings": {
-              "name": "Members and Donors",
-              "href": "/community/members",
-              "activeTest": "/community/members"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
               "name": "Local User Groups",
               "href": "/community/groups",
               "activeTest": "/community/groups"
@@ -196,8 +188,8 @@
       "type": "button",
       "settings": {
         "name": "Donate",
-        "href": "funding/donate",
-        "activeTest": "funding/donate"
+        "href": "/funding/donate",
+        "activeTest": "/funding/donate"
       }
     }
   ]
