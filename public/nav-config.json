@@ -91,19 +91,19 @@
           {
             "type": "link",
             "settings": {
+              "name": "Local User Groups",
+              "href": "/community/groups",
+              "activeTest": "/community/groups"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
               "name": "Members Blog",
               "href": "https://plugins.qgis.org/planet/"
             }
           }
         ]
-      }
-    },
-    {
-      "type": "link",
-      "settings": {
-        "name": "Download",
-        "href": "/download",
-        "activeTest": "/download"
       }
     },
     {
@@ -185,11 +185,19 @@
       }
     },
     {
+      "type": "link",
+      "settings": {
+        "name": "Download",
+        "href": "/download",
+        "activeTest": "/download"
+      }
+    },
+    {
       "type": "button",
       "settings": {
         "name": "Donate",
-        "href": "/donate",
-        "activeTest": "/donate"
+        "href": "funding/donate",
+        "activeTest": "funding/donate"
       }
     }
   ]
