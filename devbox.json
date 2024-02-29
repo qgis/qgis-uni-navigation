@@ -12,10 +12,13 @@
         "pnpm run dev"
       ],
       "build": [
-        "pnpm run build"
+        "pnpm run build \"$@\""
       ],
       "preview": [
         "pnpm run preview"
+      ],
+      "deploy": [
+        "pnpm run deploy"
       ]
     }
   }
