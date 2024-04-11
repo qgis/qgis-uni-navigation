@@ -195,6 +195,13 @@ You can build the component using the following command:
 $ devbox run build -- --base=<base-url>
 ```
 
+To build using the current repo's GitHub page for example:
+
+
+```sh
+$ devbox run build -- --base=https://qgis.github.io/qgis-uni-navigation/
+```
+
 This will generate the necessary files in the `dist` directory, which can be deployed to a static file server or a CDN.
 The `base` option should be set to the base URL of the deployment, which is necessary for proper asset loading and routing.
 
