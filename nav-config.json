@@ -13,16 +13,16 @@
             "type": "link",
             "settings": {
               "name": "Overview",
-              "href": "/project/overview",
-              "activeTest": "/project/overview"
+              "href": "/product/overview",
+              "activeTest": "/product/overview"
             }
           },
           {
             "type": "link",
             "settings": {
               "name": "Case studies",
-              "href": "/project/case-studies",
-              "activeTest": "/project/case-studies"
+              "href": "/product/case-studies",
+              "activeTest": "/product/case-studies"
             }
           },
           {
@@ -36,8 +36,8 @@
             "type": "link",
             "settings": {
               "name": "Visual Changelogs",
-              "href": "/project/visual-changelogs",
-              "activeTest": "/project/visual-changelogs"
+              "href": "/product/visual-changelogs",
+              "activeTest": "/product/visual-changelogs"
             }
           }
         ]
