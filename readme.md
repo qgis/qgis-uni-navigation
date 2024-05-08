@@ -71,14 +71,14 @@ This is an example of a JSON file named `nav-config.json` that defines the navig
             "type": "link",
             "settings": {
               "name": "Overview",
-              "href": "/project/overview"
+              "href": "/product/overview"
             }
           },
           {
             "type": "link",
             "settings": {
               "name": "Features",
-              "href": "/project/features"
+              "href": "/product/features"
             }
           }
         ]
