@@ -65,7 +65,7 @@ This is an example of a JSON file named `nav-config.json` that defines the navig
     {
       "type": "menu",
       "settings": {
-        "name": "Project",
+        "name": "Product",
         "children": [
           {
             "type": "link",
