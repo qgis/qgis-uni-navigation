@@ -7,22 +7,22 @@
     {
       "type": "menu",
       "settings": {
-        "name": "Product",
+        "name": "Project",
         "children": [
           {
             "type": "link",
             "settings": {
               "name": "Overview",
-              "href": "/product/overview",
-              "activeTest": "/product/overview"
+              "href": "/project/overview",
+              "activeTest": "/project/overview"
             }
           },
           {
             "type": "link",
             "settings": {
               "name": "Case studies",
-              "href": "/product/case-studies",
-              "activeTest": "/product/case-studies"
+              "href": "/project/case-studies",
+              "activeTest": "/project/case-studies"
             }
           },
           {
@@ -36,8 +36,8 @@
             "type": "link",
             "settings": {
               "name": "Visual Changelogs",
-              "href": "/product/visual-changelogs",
-              "activeTest": "/product/visual-changelogs"
+              "href": "/project/visual-changelogs",
+              "activeTest": "/project/visual-changelogs"
             }
           }
         ]
