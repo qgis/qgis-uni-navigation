@@ -65,20 +65,20 @@ This is an example of a JSON file named `nav-config.json` that defines the navig
     {
       "type": "menu",
       "settings": {
-        "name": "Product",
+        "name": "Project",
         "children": [
           {
             "type": "link",
             "settings": {
               "name": "Overview",
-              "href": "/product/overview"
+              "href": "/project/overview"
             }
           },
           {
             "type": "link",
             "settings": {
               "name": "Features",
-              "href": "/product/features"
+              "href": "/project/features"
             }
           }
         ]
