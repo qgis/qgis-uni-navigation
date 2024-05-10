@@ -7,7 +7,7 @@
     {
       "type": "menu",
       "settings": {
-        "name": "Project",
+        "name": "Product",
         "children": [
           {
             "type": "link",
