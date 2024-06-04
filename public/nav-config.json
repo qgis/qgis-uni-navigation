@@ -59,7 +59,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Become a Certified Member",
+              "name": "Become a Certified Trainer",
               "href": "/community/certification",
               "activeTest": "/community/certification"
             }
