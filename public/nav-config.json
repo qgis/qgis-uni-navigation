@@ -106,7 +106,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Documentation",
+              "name": "QGIS Resources",
               "href": "/resources/hub",
               "activeTest": "/resources/hub"
             }
@@ -117,6 +117,13 @@
               "name": "Installation Guide",
               "href": "/resources/installation-guide",
               "activeTest": "/resources/installation-guide"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Documentation",
+              "href": "https://docs.qgis.org/latest/en/docs/index.html"
             }
           },
           {
