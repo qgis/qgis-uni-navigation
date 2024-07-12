@@ -108,9 +108,11 @@ export class QGTopNav extends LitElement {
           </div>`;
 
         case 'button':
-          const buttonLink = this.locationPrefix + ctrl.settings.href;
-          return html`<a href=${buttonLink} class="link button"
-            >${ctrl.settings.name}</a
+          const iconButtonLink = this.locationPrefix + ctrl.settings.href;
+          return html`<a href=${iconButtonLink} class="link ${ctrl.settings.class}"
+            ><img src="${ctrl.settings.icon}" alt="${ctrl.settings.name}">
+            <span>${ctrl.settings.name}</span>
+            </a
           >`;
 
         default:
@@ -280,9 +282,7 @@ export class QGTopNav extends LitElement {
       padding: 0 1.75rem;
     }
 
-    .link.button {
-      background-color: var(--qg-nav-active-color, #589632);
-      color: #fff;
+    .link.primary, .link.basic {
       border-radius: 0.5rem;
       padding: 0.75rem 1rem;
       align-self: center;
@@ -291,10 +291,36 @@ export class QGTopNav extends LitElement {
       line-height: 16px; /* 114.286% */
       letter-spacing: 0.022px;
     }
-
-    .link.button:hover {
-      background-color: var(--qg-nav-active-color, #528c2f);
+    
+    .link.primary {
+      color: #fff;
+      background-color: var(--qg-nav-active-color, #589632);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.5s ease, box-shadow 0.3s ease;
     }
+
+    .link.basic {
+      color: #000;
+      background-color: var(--qg-nav-active-color, #ecf1f492);
+      transition: background-color 0.5s ease;
+    }
+    
+    .link.basic img, .link.primary img {
+      height: 16px;
+    }
+    .link.basic span, .link.primary span {
+      margin-left: 10px;
+    }
+
+    .link.primary:hover {
+      background-color: var(--qg-nav-active-color, #7fc355);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .link.basic:hover {
+      background-color: var(--qg-nav-active-color, #E7E7E7);
+    }
+
 
     .link.external::after {
       content: '';

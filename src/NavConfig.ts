@@ -20,8 +20,20 @@ export interface ButtonControl {
   settings: {
     name: string;
     href: string;
+    icon: string;
+    class: string;
   };
 }
+
+export interface IconButtonControl {
+  type: 'regular-button';
+  settings: {
+    name: string;
+    href: string;
+    icon: string;
+  };
+}
+
 
 export interface MenuControl {
   type: 'menu';
