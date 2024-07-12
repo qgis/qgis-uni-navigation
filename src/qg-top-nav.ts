@@ -109,11 +109,11 @@ export class QGTopNav extends LitElement {
 
         case 'button':
           const iconButtonLink = this.locationPrefix + ctrl.settings.href;
-          return html`<a href=${iconButtonLink} class="link ${ctrl.settings.class}"
+          return html`<div><a href=${iconButtonLink} class="link ${ctrl.settings.class}"
             ><img src="${ctrl.settings.icon}" alt="${ctrl.settings.name}">
             <span>${ctrl.settings.name}</span>
             </a
-          >`;
+          ></div>`;
 
         default:
           return '';
@@ -255,6 +255,7 @@ export class QGTopNav extends LitElement {
       flex-flow: row nowrap;
       align-items: stretch;
       gap: 1.5rem;
+      align-items: center;
     }
 
     .link:hover,
@@ -375,7 +376,7 @@ export class QGTopNav extends LitElement {
       border-top: 1px solid #e3e3e3;
       padding: 1rem 2rem;
       flex-flow: column nowrap;
-      gap: 2rem;
+      gap: 1.5rem;
       transition: 0.4s ease-in-out;
       max-height: calc(100vh - 200%);
       overflow: auto;
