@@ -182,21 +182,21 @@
     {
       "type": "button",
       "settings": {
-        "name": "Shop",
-        "href": "/goodies",
-        "class": "basic",
-        "icon": "/shop.svg",
-        "activeTest": "/goodies"
-      }
-    },
-    {
-      "type": "button",
-      "settings": {
         "name": "Donate",
         "href": "/funding/donate",
         "class": "primary",
         "icon": "/donate.svg",
         "activeTest": "/funding/donate"
+      }
+    },
+    {
+      "type": "button",
+      "settings": {
+        "name": "Shop",
+        "href": "/goodies",
+        "class": "basic icon-button",
+        "icon": "/shop.svg",
+        "activeTest": "/goodies"
       }
     }
   ]

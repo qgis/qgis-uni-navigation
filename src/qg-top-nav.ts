@@ -109,9 +109,9 @@ export class QGTopNav extends LitElement {
 
         case 'button':
           const iconButtonLink = this.locationPrefix + ctrl.settings.href;
-          return html`<div><a href=${iconButtonLink} class="link ${ctrl.settings.class}"
+          return html`<div class="button-container"><a href=${iconButtonLink} class="link ${ctrl.settings.class}"
             ><img src="${ctrl.settings.icon}" alt="${ctrl.settings.name}">
-            <span>${ctrl.settings.name}</span>
+            <span class="button-text">${ctrl.settings.name}</span>
             </a
           ></div>`;
 
@@ -322,6 +322,33 @@ export class QGTopNav extends LitElement {
       background-color: var(--qg-nav-active-color, #E7E7E7);
     }
 
+    .desktop .button-container {
+      min-width:100px; 
+      display:inherit;
+    }
+    .desktop .icon-button:hover {
+      width:100%;
+    }
+    .desktop .icon-button {
+      position: relative;
+      width: 20px;
+      transition: width 0.5s ease;
+    }
+      
+    .desktop .icon-button .button-text {
+      position: absolute;
+      left: 25px;
+      white-space: nowrap;
+      padding-left: 10px;
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease, opacity 0.8s ease-in, opacity 0.3s ease-out;
+    }
+
+    .desktop .icon-button:hover .button-text {
+      transform: translateX(0);
+      opacity: 1;
+    }
 
     .link.external::after {
       content: '';
