@@ -122,14 +122,6 @@
           {
             "type": "link",
             "settings": {
-              "name": "Releases",
-              "href": "/resources/releases",
-              "activeTest": "/resources/releases"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
               "name": "Roadmap",
               "href": "/resources/roadmap",
               "activeTest": "/resources/roadmap"
@@ -157,6 +149,14 @@
               "name": "Support",
               "href": "/resources/support",
               "activeTest": "/resources/support"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Archive",
+              "href": "/archive",
+              "activeTest": "/archive"
             }
           },
           {
