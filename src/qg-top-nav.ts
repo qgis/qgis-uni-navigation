@@ -323,7 +323,7 @@ export class QGTopNav extends LitElement {
     }
 
     .desktop .button-container {
-      min-width:100px; 
+      min-width:120px; 
       display:inherit;
     }
     .desktop .icon-button:hover {

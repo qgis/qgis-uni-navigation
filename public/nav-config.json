@@ -192,10 +192,10 @@
     {
       "type": "button",
       "settings": {
-        "name": "Shop",
+        "name": "Goodies",
         "href": "/goodies",
         "class": "basic icon-button",
-        "icon": "/shop.svg",
+        "icon": "/goodies.svg",
         "activeTest": "/goodies"
       }
     }
