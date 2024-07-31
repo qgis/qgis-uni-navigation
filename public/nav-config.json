@@ -162,14 +162,14 @@
           {
             "type": "link",
             "settings": {
-              "name": "QGIS Dashboard",
+              "name": "QGIS Metrics",
               "href": "https://analytics.qgis.org"
             }
           },
           {
             "type": "link",
             "settings": {
-              "name": "Plugins Dashboard",
+              "name": "Plugins Metrics",
               "href": "https://plugins.qgis.org/metabase/public/dashboard/7ecd345f-7321-423d-9844-71e526a454a9"
             }
           },
