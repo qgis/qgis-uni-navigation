@@ -91,6 +91,22 @@
           {
             "type": "link",
             "settings": {
+              "name": "Sustaining membership program",
+              "href": "/funding/membership/",
+              "activeTest": "/funding/membership/"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Sustaining members",
+              "href": "/funding/membership/members",
+              "activeTest": "/funding/membership/members"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
               "name": "Members Blog",
               "href": "https://plugins.qgis.org/planet/"
             }
