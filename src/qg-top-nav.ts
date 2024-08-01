@@ -108,10 +108,12 @@ export class QGTopNav extends LitElement {
           </div>`;
 
         case 'button':
-          const buttonLink = this.locationPrefix + ctrl.settings.href;
-          return html`<a href=${buttonLink} class="link button"
-            >${ctrl.settings.name}</a
-          >`;
+          const iconButtonLink = this.locationPrefix + ctrl.settings.href;
+          return html`<div class="button-container"><a href=${iconButtonLink} class="link ${ctrl.settings.class}"
+            ><img src="${ctrl.settings.icon}" alt="${ctrl.settings.name}">
+            <span class="button-text">${ctrl.settings.name}</span>
+            </a
+          ></div>`;
 
         default:
           return '';
@@ -253,6 +255,7 @@ export class QGTopNav extends LitElement {
       flex-flow: row nowrap;
       align-items: stretch;
       gap: 1.5rem;
+      align-items: center;
     }
 
     .link:hover,
@@ -280,9 +283,7 @@ export class QGTopNav extends LitElement {
       padding: 0 1.75rem;
     }
 
-    .link.button {
-      background-color: var(--qg-nav-active-color, #589632);
-      color: #fff;
+    .link.primary, .link.basic {
       border-radius: 0.5rem;
       padding: 0.75rem 1rem;
       align-self: center;
@@ -291,9 +292,62 @@ export class QGTopNav extends LitElement {
       line-height: 16px; /* 114.286% */
       letter-spacing: 0.022px;
     }
+    
+    .link.primary {
+      color: #fff;
+      background-color: var(--qg-nav-active-color, #589632);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.5s ease, box-shadow 0.3s ease;
+    }
 
-    .link.button:hover {
-      background-color: var(--qg-nav-active-color, #528c2f);
+    .link.basic {
+      color: #000;
+      background-color: var(--qg-nav-active-color, #ecf1f492);
+      transition: background-color 0.5s ease;
+    }
+    
+    .link.basic img, .link.primary img {
+      height: 16px;
+    }
+    .link.basic span, .link.primary span {
+      margin-left: 10px;
+    }
+
+    .link.primary:hover {
+      background-color: var(--qg-nav-active-color, #7fc355);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .link.basic:hover {
+      background-color: var(--qg-nav-active-color, #E7E7E7);
+    }
+
+    .desktop .button-container {
+      min-width:120px; 
+      display:inherit;
+    }
+    .desktop .icon-button:hover {
+      width:100%;
+    }
+    .desktop .icon-button {
+      position: relative;
+      width: 20px;
+      transition: width 0.5s ease;
+    }
+      
+    .desktop .icon-button .button-text {
+      position: absolute;
+      left: 25px;
+      white-space: nowrap;
+      padding-left: 10px;
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease, opacity 0.8s ease-in, opacity 0.3s ease-out;
+    }
+
+    .desktop .icon-button:hover .button-text {
+      transform: translateX(0);
+      opacity: 1;
     }
 
     .link.external::after {
@@ -349,7 +403,7 @@ export class QGTopNav extends LitElement {
       border-top: 1px solid #e3e3e3;
       padding: 1rem 2rem;
       flex-flow: column nowrap;
-      gap: 2rem;
+      gap: 1.5rem;
       transition: 0.4s ease-in-out;
       max-height: calc(100vh - 200%);
       overflow: auto;

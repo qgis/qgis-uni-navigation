@@ -184,10 +184,12 @@
       }
     },
     {
-      "type": "link",
+      "type": "button",
       "settings": {
         "name": "Download",
         "href": "/download",
+        "class": "basic",
+        "icon": "/download.svg",
         "activeTest": "/download"
       }
     },
@@ -196,7 +198,19 @@
       "settings": {
         "name": "Donate",
         "href": "/funding/donate",
+        "class": "primary",
+        "icon": "/donate.svg",
         "activeTest": "/funding/donate"
+      }
+    },
+    {
+      "type": "button",
+      "settings": {
+        "name": "Goodies",
+        "href": "/goodies",
+        "class": "basic icon-button",
+        "icon": "/goodies.svg",
+        "activeTest": "/goodies"
       }
     }
   ]
