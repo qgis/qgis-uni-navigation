@@ -205,7 +205,7 @@
         "name": "Download",
         "href": "/download",
         "class": "basic",
-        "icon": "/download.svg",
+        "icon": "https://qgis.github.io/qgis-uni-navigation/download.svg",
         "activeTest": "/download"
       }
     },
@@ -215,7 +215,7 @@
         "name": "Donate",
         "href": "/funding/donate",
         "class": "primary",
-        "icon": "/donate.svg",
+        "icon": "https://qgis.github.io/qgis-uni-navigation//donate.svg",
         "activeTest": "/funding/donate"
       }
     },
@@ -225,7 +225,7 @@
         "name": "Goodies",
         "href": "/goodies",
         "class": "basic icon-button",
-        "icon": "/goodies.svg",
+        "icon": "https://qgis.github.io/qgis-uni-navigation//goodies.svg",
         "activeTest": "/goodies"
       }
     }
