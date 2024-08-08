@@ -149,8 +149,11 @@ var pe=(r,e,t)=>{if(!e.has(r))throw TypeError("Cannot "+t)};var X=(r,e,t)=>(pe(r
     }
 
     .desktop .button-container {
-      min-width:120px; 
       display:inherit;
+    }
+
+    .desktop .button-container:last-child {
+      min-width: 120px;
     }
     .desktop .icon-button:hover {
       width:100%;
@@ -167,7 +170,7 @@ var pe=(r,e,t)=>{if(!e.has(r))throw TypeError("Cannot "+t)};var X=(r,e,t)=>(pe(r
       white-space: nowrap;
       padding-left: 10px;
       opacity: 0;
-      transform: translateX(-100%);
+      transform: translateX(-50%);
       transition: transform 0.5s ease, opacity 0.8s ease-in, opacity 0.3s ease-out;
     }
 
