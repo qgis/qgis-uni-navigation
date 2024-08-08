@@ -323,8 +323,11 @@ export class QGTopNav extends LitElement {
     }
 
     .desktop .button-container {
-      min-width:120px; 
       display:inherit;
+    }
+
+    .desktop .button-container:last-child {
+      min-width: 120px;
     }
     .desktop .icon-button:hover {
       width:100%;
@@ -341,7 +344,7 @@ export class QGTopNav extends LitElement {
       white-space: nowrap;
       padding-left: 10px;
       opacity: 0;
-      transform: translateX(-100%);
+      transform: translateX(-50%);
       transition: transform 0.5s ease, opacity 0.8s ease-in, opacity 0.3s ease-out;
     }
 
