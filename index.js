@@ -160,7 +160,6 @@ var pe=(r,e,t)=>{if(!e.has(r))throw TypeError("Cannot "+t)};var X=(r,e,t)=>(pe(r
     }
     .desktop .icon-button {
       position: relative;
-      width: 20px;
       transition: width 0.5s ease;
     }
       
