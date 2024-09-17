@@ -107,6 +107,14 @@
           {
             "type": "link",
             "settings": {
+              "name": "Meetings",
+              "href": "/community/organisation/meetings/",
+              "activeTest": "/community/organisation/meetings/"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
               "name": "Members Blog",
               "href": "https://plugins.qgis.org/planet/"
             }
