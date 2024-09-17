@@ -334,7 +334,6 @@ export class QGTopNav extends LitElement {
     }
     .desktop .icon-button {
       position: relative;
-      width: 20px;
       transition: width 0.5s ease;
     }
       
