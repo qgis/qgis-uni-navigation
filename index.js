@@ -225,7 +225,7 @@ var pe=(r,e,t)=>{if(!e.has(r))throw TypeError("Cannot "+t)};var X=(r,e,t)=>(pe(r
       display: flex;
       position: absolute;
       top: 100%;
-      right: -100%;
+      right: -125%;
       background-color: #fff;
       box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
       border-top: 1px solid #e3e3e3;
