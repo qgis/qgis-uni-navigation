@@ -162,7 +162,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Support",
+              "name": "Contact and Support",
               "href": "/resources/support",
               "activeTest": "/resources/support"
             }
