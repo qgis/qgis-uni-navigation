@@ -28,6 +28,13 @@
           {
             "type": "link",
             "settings": {
+              "name": "All News",
+              "href": "https://feed.qgis.org/"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
               "name": "Plugins",
               "href": "https://plugins.qgis.org/"
             }
