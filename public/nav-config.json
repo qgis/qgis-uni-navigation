@@ -28,15 +28,15 @@
           {
             "type": "link",
             "settings": {
-              "name": "All News",
-              "href": "https://feed.qgis.org/"
+              "name": "Plugins",
+              "href": "https://plugins.qgis.org/"
             }
           },
           {
             "type": "link",
             "settings": {
-              "name": "Plugins",
-              "href": "https://plugins.qgis.org/"
+              "name": "All News",
+              "href": "https://feed.qgis.org/"
             }
           },
           {
@@ -45,6 +45,13 @@
               "name": "Visual Changelogs",
               "href": "/project/visual-changelogs",
               "activeTest": "/project/visual-changelogs"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "QGIS Metrics",
+              "href": "https://analytics.qgis.org"
             }
           }
         ]
@@ -123,7 +130,7 @@
             "type": "link",
             "settings": {
               "name": "Members Blog",
-              "href": "https://plugins.qgis.org/planet/"
+              "href": "https://planet.qgis.org/"
             }
           }
         ]
@@ -169,6 +176,13 @@
           {
             "type": "link",
             "settings": {
+              "name": "Resources Hub",
+              "href": "https://hub.qgis.org"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
               "name": "Books",
               "href": "/resources/books",
               "activeTest": "/resources/books"
@@ -188,20 +202,6 @@
               "name": "Archive",
               "href": "/archive",
               "activeTest": "/archive"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "QGIS Metrics",
-              "href": "https://analytics.qgis.org"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Plugins Metrics",
-              "href": "https://plugins.qgis.org/metabase/public/dashboard/7ecd345f-7321-423d-9844-71e526a454a9"
             }
           },
           {
