@@ -28,6 +28,14 @@
           {
             "type": "link",
             "settings": {
+              "name": "Case Studies",
+              "href": "/project/case-studies",
+              "activeTest": "/project/case-studies"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
               "name": "News and Blog",
               "href": "https://blog.qgis.org"
             }
