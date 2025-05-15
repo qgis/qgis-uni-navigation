@@ -577,7 +577,7 @@ export class QGTopNav extends LitElement {
     }
 
     .mobile .dropdown[data-expanded='true'] {
-      max-height: 100vh;
+      max-height: 150vh;
     }
   `;
 }
