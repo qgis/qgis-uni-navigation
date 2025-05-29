@@ -13,18 +13,37 @@ export class QGTopNav extends LitElement {
   @property({ type: String })
   accessor src = `${import.meta.env.BASE_URL}nav-config.json`;
 
+  @property({ type: String })
+  accessor buttonSrc = `${import.meta.env.BASE_URL}button-config.json`;
+
+  @property({ type: String, attribute: 'secondary-menu-config' })
+  accessor secondaryMenu = '';
+
   @property({ type: Number })
   accessor breakpoint = 1024;
 
   @property({ type: String, attribute: 'location-prefix' })
   accessor locationPrefix = '';
 
+  @property({ type: String, attribute: 'second-menu-prefix' })
+  accessor secondMenuPrefix = '';
+
   @state()
   protected config: null | HeaderConfig = null;
+  protected buttonConfig: null | HeaderConfig = null;
+  protected secondaryConfig: null | HeaderConfig = null;
   protected logo: null | LogoConfig = null;
 
   async connectedCallback() {
     super.connectedCallback();
+    if (this.secondaryMenu) {
+      const secondaryConfig = await readConfig(this.secondaryMenu);
+      this.secondaryConfig = secondaryConfig;
+    }
+
+    const buttonConfig = await readConfig(this.buttonSrc);
+    this.buttonConfig = buttonConfig;
+
     const config = await readConfig(this.src);
     this.config = config;
 
@@ -96,6 +115,14 @@ export class QGTopNav extends LitElement {
 
           const href = this.locationPrefix + ctrl.settings.href;
           return html`<a href=${href} class=${linkClasses}>${ctrl.settings.name}</a>`;
+        case 'second-menu':
+          const secondMenuClasses = classMap({
+            link: true,
+            external: false,
+          });
+
+          const secondMenuHref = this.secondMenuPrefix + ctrl.settings.href;
+          return html`<a href=${secondMenuHref} class=${secondMenuClasses}>${ctrl.settings.name}</a>`;
         case 'menu':
           const menuClasses = classMap({
             menu: true,
@@ -185,7 +212,11 @@ export class QGTopNav extends LitElement {
   }
 
   drawMobileMenu() {
-    const navigation = this.config?.navigation;
+    const primaryNavigation = this.config?.navigation ?? [];
+    const secondaryNavigation = this.secondaryConfig?.navigation ?? [];
+    const buttonNavigation = this.buttonConfig?.navigation ?? [];
+    const navigation = [...primaryNavigation, ...secondaryNavigation, ...buttonNavigation];
+
 
     return html`<div id="mobile-menu" class="mobile">
       ${this.drawMenu(navigation, false)}
@@ -193,7 +224,9 @@ export class QGTopNav extends LitElement {
   }
 
   drawHeader() {
-    const navigation = this.config?.navigation;
+    const primaryNavigation = this.config?.navigation ?? [];
+    const buttonNavigation = this.buttonConfig?.navigation ?? [];
+    const navigation = [...primaryNavigation, ...buttonNavigation];
 
     return navigation
       ? html`<nav class="navigation" role="navigation" aria-label="main navigation">
@@ -274,7 +307,6 @@ export class QGTopNav extends LitElement {
       text-decoration: none;
       display: flex;
       align-items: center;
-      white-space: nowrap;
       transition: 0.2s;
     }
 
@@ -439,6 +471,7 @@ export class QGTopNav extends LitElement {
     .desktop .dropdown .link {
       padding: 0.75rem 1.5rem;
       font-weight: 400;
+      white-space: nowrap;
     }
 
     .desktop .menu:hover .dropdown {
@@ -544,7 +577,7 @@ export class QGTopNav extends LitElement {
     }
 
     .mobile .dropdown[data-expanded='true'] {
-      max-height: 100vh;
+      max-height: 150vh;
     }
   `;
 }

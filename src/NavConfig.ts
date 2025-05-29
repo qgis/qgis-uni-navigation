@@ -3,7 +3,7 @@ export interface LogoConfig {
   link: string;
 }
 
-export type NavigationControl = LinkControl | MenuControl | ButtonControl;
+export type NavigationControl = LinkControl | MenuControl | SecondMenuControl | ButtonControl;
 
 export interface LinkControl {
   type: 'link';
@@ -12,6 +12,14 @@ export interface LinkControl {
     href: string;
     /* URL Pattern */
     activeTest: '';
+  };
+}
+
+export interface SecondMenuControl {
+  type: 'second-menu';
+  settings: {
+    name: string;
+    href: string;
   };
 }
 
@@ -47,3 +55,4 @@ export interface HeaderConfig {
   logo?: LogoConfig;
   navigation?: NavigationControl[];
 }
+

@@ -18,7 +18,14 @@ Then you can use the qg-top-nav element in your HTML as follows:
 </head>
 <body>
 
-<qg-top-nav breakpoint="768"></qg-top-nav>
+<qg-top-nav 
+  breakpoint="768"
+  location-prefix="https://qgis.org"
+  second-menu-prefix="https://hub.qgis.org"
+  secondary-menu-config="https://raw.githubusercontent.com/qgis/QGIS-Hub-Website/main/menu-config.json"
+>
+
+</qg-top-nav>
 
 </body>
 </html>

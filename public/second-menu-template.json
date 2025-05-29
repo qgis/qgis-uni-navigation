@@ -1,0 +1,68 @@
+{
+  "navigation": [
+    {
+      "type": "menu",
+      "settings": {
+        "name": "Hub",
+        "children": [
+          {
+            "type": "second-menu",
+            "settings": {
+              "name": "Features",
+              "href": "/project/overview"
+            }
+          },
+          {
+            "type": "second-menu",
+            "settings": {
+              "name": "Screenshots and Maps",
+              "href": "/project/overview/#maps-showcase"
+            }
+          },
+          {
+            "type": "second-menu",
+            "settings": {
+              "name": "Case Studies",
+              "href": "/project/case-studies"
+            }
+          },
+          {
+            "type": "second-menu",
+            "settings": {
+              "name": "News and Blog",
+              "href": "https://blog.qgis.org"
+            }
+          },
+          {
+            "type": "second-menu",
+            "settings": {
+              "name": "Past Releases (Changelog)",
+              "href": "/project/visual-changelogs"
+            }
+          },
+          {
+            "type": "second-menu",
+            "settings": {
+              "name": "Future Releases (Roadmap)",
+              "href": "/resources/roadmap"
+            }
+          },
+          {
+            "type": "second-menu",
+            "settings": {
+              "name": "Sustaining members",
+              "href": "/funding/membership/members"
+            }
+          },
+          {
+            "type": "second-menu",
+            "settings": {
+              "name": "Contact and Support",
+              "href": "/resources/support"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
