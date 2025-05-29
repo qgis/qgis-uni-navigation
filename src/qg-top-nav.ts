@@ -307,7 +307,6 @@ export class QGTopNav extends LitElement {
       text-decoration: none;
       display: flex;
       align-items: center;
-      white-space: nowrap;
       transition: 0.2s;
     }
 
@@ -472,6 +471,7 @@ export class QGTopNav extends LitElement {
     .desktop .dropdown .link {
       padding: 0.75rem 1.5rem;
       font-weight: 400;
+      white-space: nowrap;
     }
 
     .desktop .menu:hover .dropdown {

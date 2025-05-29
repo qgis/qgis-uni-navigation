@@ -20,6 +20,7 @@ in
     allowUnfree = true;
     buildInputs = [
       vscode
+      devbox
     ];
 
     # Now we can execute any commands within the virtual environment.
