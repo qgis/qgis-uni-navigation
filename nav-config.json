@@ -7,12 +7,12 @@
     {
       "type": "menu",
       "settings": {
-        "name": "Project",
+        "name": "About",
         "children": [
           {
             "type": "link",
             "settings": {
-              "name": "Overview",
+              "name": "Features",
               "href": "/project/overview",
               "activeTest": "/project/overview"
             }
@@ -20,9 +20,79 @@
           {
             "type": "link",
             "settings": {
-              "name": "Case studies",
+              "name": "Screenshots and Maps",
+              "href": "/project/overview/#maps-showcase",
+              "activeTest": "/project/overview/#maps-showcase"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Case Studies",
               "href": "/project/case-studies",
               "activeTest": "/project/case-studies"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "News and Blog",
+              "href": "https://blog.qgis.org"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Past Releases (Changelog)",
+              "href": "/project/visual-changelogs",
+              "activeTest": "/project/visual-changelogs"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Future Releases (Roadmap)",
+              "href": "/resources/roadmap",
+              "activeTest": "/resources/roadmap"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Sustaining members",
+              "href": "/funding/membership/members",
+              "activeTest": "/funding/membership/members"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Contact and Support",
+              "href": "/resources/support",
+              "activeTest": "/resources/support"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "menu",
+      "settings": {
+        "name": "Resources",
+        "children": [
+          {
+            "type": "link",
+            "settings": {
+              "name": "Documentation",
+              "href": "/resources/hub",
+              "activeTest": "/resources/hub"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Resources Hub",
+              "href": "https://hub.qgis.org"
             }
           },
           {
@@ -35,25 +105,36 @@
           {
             "type": "link",
             "settings": {
-              "name": "All News",
-              "href": "https://feed.qgis.org/"
+              "name": "Books",
+              "href": "/resources/books",
+              "activeTest": "/resources/books"
             }
           },
           {
             "type": "link",
             "settings": {
-              "name": "Visual Changelogs",
-              "href": "/project/visual-changelogs",
-              "activeTest": "/project/visual-changelogs"
+              "name": "Certification Programme",
+              "href": "/community/certification",
+              "activeTest": "/community/certification"
             }
           },
           {
             "type": "link",
             "settings": {
-              "name": "QGIS Metrics",
-              "href": "https://analytics.qgis.org"
+              "name": "Visual Style Guide (Logos and Graphics)",
+              "href": "/styleguide",
+              "activeTest": "/styleguide"
+            }
+          },
+          {
+            "type": "link",
+            "settings": {
+              "name": "Compliance Reports",
+              "href": "/resources/reports/",
+              "activeTest": "/resources/reports/"
             }
           }
+          
         ]
       }
     },
@@ -73,9 +154,9 @@
           {
             "type": "link",
             "settings": {
-              "name": "Certification Programme",
-              "href": "/community/certification",
-              "activeTest": "/community/certification"
+              "name": "Meetings",
+              "href": "/community/organisation/meetings/",
+              "activeTest": "/community/organisation/meetings/"
             }
           },
           {
@@ -105,25 +186,8 @@
           {
             "type": "link",
             "settings": {
-              "name": "Sustaining membership program",
-              "href": "/funding/membership/",
-              "activeTest": "/funding/membership/"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Sustaining members",
-              "href": "/funding/membership/members",
-              "activeTest": "/funding/membership/members"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Meetings",
-              "href": "/community/organisation/meetings/",
-              "activeTest": "/community/organisation/meetings/"
+              "name": "QGIS Metrics",
+              "href": "https://analytics.qgis.org"
             }
           },
           {
@@ -134,114 +198,6 @@
             }
           }
         ]
-      }
-    },
-    {
-      "type": "menu",
-      "settings": {
-        "name": "Resources",
-        "children": [
-          {
-            "type": "link",
-            "settings": {
-              "name": "Documentation",
-              "href": "/resources/hub",
-              "activeTest": "/resources/hub"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Installation Guide",
-              "href": "/resources/installation-guide",
-              "activeTest": "/resources/installation-guide"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Roadmap",
-              "href": "/resources/roadmap",
-              "activeTest": "/resources/roadmap"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Reports",
-              "href": "/resources/reports",
-              "activeTest": "/resources/reports"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Resources Hub",
-              "href": "https://hub.qgis.org"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Books",
-              "href": "/resources/books",
-              "activeTest": "/resources/books"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Contact and Support",
-              "href": "/resources/support",
-              "activeTest": "/resources/support"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Archive",
-              "href": "/archive",
-              "activeTest": "/archive"
-            }
-          },
-          {
-            "type": "link",
-            "settings": {
-              "name": "Blog",
-              "href": "https://blog.qgis.org"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "type": "button",
-      "settings": {
-        "name": "Download",
-        "href": "/download",
-        "class": "basic",
-        "icon": "https://qgis.github.io/qgis-uni-navigation/download.svg",
-        "activeTest": "/download"
-      }
-    },
-    {
-      "type": "button",
-      "settings": {
-        "name": "Donate",
-        "href": "/funding/donate",
-        "class": "primary",
-        "icon": "https://qgis.github.io/qgis-uni-navigation/donate.svg",
-        "activeTest": "/funding/donate"
-      }
-    },
-    {
-      "type": "button",
-      "settings": {
-        "name": "Goodies",
-        "href": "/goodies",
-        "class": "basic icon-button",
-        "icon": "https://qgis.github.io/qgis-uni-navigation/goodies.svg",
-        "activeTest": "/goodies"
       }
     }
   ]

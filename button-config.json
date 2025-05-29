@@ -1,0 +1,34 @@
+{
+  "navigation": [
+    {
+      "type": "button",
+      "settings": {
+        "name": "Download",
+        "href": "/download",
+        "class": "basic",
+        "icon": "https://qgis.github.io/qgis-uni-navigation/download.svg",
+        "activeTest": "/download"
+      }
+    },
+    {
+      "type": "button",
+      "settings": {
+        "name": "Donate",
+        "href": "/funding/donate",
+        "class": "primary",
+        "icon": "https://qgis.github.io/qgis-uni-navigation/donate.svg",
+        "activeTest": "/funding/donate"
+      }
+    },
+    {
+      "type": "button",
+      "settings": {
+        "name": "Goodies",
+        "href": "/goodies",
+        "class": "basic icon-button",
+        "icon": "https://qgis.github.io/qgis-uni-navigation/goodies.svg",
+        "activeTest": "/goodies"
+      }
+    }
+  ]
+}
