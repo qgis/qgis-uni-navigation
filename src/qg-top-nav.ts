@@ -36,16 +36,23 @@ export class QGTopNav extends LitElement {
 
   async connectedCallback() {
     super.connectedCallback();
-    if (this.secondaryMenu) {
-      const secondaryConfig = await readConfig(this.secondaryMenu);
+    
+    // 🚀 Parallel loading of all configs
+    const configPromises = [
+      readConfig(this.src),
+      readConfig(this.buttonSrc),
+      this.secondaryMenu ? readConfig(this.secondaryMenu) : Promise.resolve(null)
+    ];
+
+    try {
+      const [config, buttonConfig, secondaryConfig] = await Promise.all(configPromises);
+      
+      this.config = config;
+      this.buttonConfig = buttonConfig;
       this.secondaryConfig = secondaryConfig;
+    } catch (error) {
+      console.error('Failed to load navigation configs:', error);
     }
-
-    const buttonConfig = await readConfig(this.buttonSrc);
-    this.buttonConfig = buttonConfig;
-
-    const config = await readConfig(this.src);
-    this.config = config;
 
     // If the data-screen attribute is set by the user, we don't want to change it automatically
     if (this.getAttribute('data-screen') === 'mobile') return;
