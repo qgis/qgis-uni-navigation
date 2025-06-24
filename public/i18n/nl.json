@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "about": {
+      "title": "Info",
+      "features": "Mogelijkheden",
+      "screenshots": "Schermafdrukken en kaarten",
+      "case_studies": "Praktijkvoorbeelden",
+      "news": "Nieuws en blog", 
+      "past_releases": "Laatste uitgaven (log met wijzigingen)",
+      "future_releases": "Toekomstige uitgaven (Roadmap)",
+      "sustaining_members": "Dragende leden",
+      "contact_support": "Contact en ondersteuning"
+    },
+    "resources": {
+      "title": "Bronnen",
+      "documentation": "Documentatie",
+      "hub": "Hub voor bronnen ",
+      "plugins": "Plug-ins",
+      "books": "Boeken",
+      "certification": "Proces van certificeren",
+      "style_guide": "Visuele stijlgids (logo's en afbeeldingen)",
+      "compliance_reports": "Rapporten conformiteit "
+    },
+    "community": {
+      "title": "Gemeenschap",
+      "get_involved": "Help mee",
+      "meetings": "Bijeenkomsten",
+      "foundation": "QGIS Foundation",
+      "organisation": "Projectorganisatie",
+      "user_groups": "Lokale gebruikersgroepen",
+      "metrics": "QGIS metrieken",
+      "members_blog": "Blog leden"
+    },
+    "buttons": {
+      "download": "Downloaden",
+      "donate": "Doneren",
+      "goodies": "QGIS Goodies"
+    },
+    "hub": {
+      "title": "Hub"
+    }
+  }
+} 

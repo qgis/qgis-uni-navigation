@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "about": {
+      "title": "O programie",
+      "features": "Funkcje",
+      "screenshots": "Screenshots and Maps",
+      "case_studies": "Przykłady użycia",
+      "news": "News and Blog", 
+      "past_releases": "Past Releases (Changelog)",
+      "future_releases": "Future Releases (Roadmap)",
+      "sustaining_members": "Sustaining members",
+      "contact_support": "Contact and Support"
+    },
+    "resources": {
+      "title": "Resources",
+      "documentation": "Dokumentacja",
+      "hub": "Resources Hub",
+      "plugins": "Wtyczki",
+      "books": "Książki",
+      "certification": "Certification Programme",
+      "style_guide": "Visual Style Guide (Logos and Graphics)",
+      "compliance_reports": "Compliance Reports"
+    },
+    "community": {
+      "title": "Community",
+      "get_involved": "Get involved",
+      "meetings": "Spotkania",
+      "foundation": "QGIS Foundation",
+      "organisation": "Project Organisation",
+      "user_groups": "Local User Groups",
+      "metrics": "QGIS Metrics",
+      "members_blog": "Members Blog"
+    },
+    "buttons": {
+      "download": "Pobierz",
+      "donate": "Donate",
+      "goodies": "Goodies"
+    },
+    "hub": {
+      "title": "Hub"
+    }
+  }
+} 

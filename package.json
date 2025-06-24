@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "i18n:push": "tx push -s",
+    "i18n:pull": "tx pull -a",
+    "i18n:status": "tx status"
   },
   "dependencies": {
     "lit": "^3.1.0",

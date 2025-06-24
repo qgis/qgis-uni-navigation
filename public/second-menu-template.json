@@ -3,62 +3,62 @@
     {
       "type": "menu",
       "settings": {
-        "name": "Hub",
+        "name": "nav.hub.title",
         "children": [
           {
             "type": "second-menu",
             "settings": {
-              "name": "Features",
-              "href": "/project/overview"
+              "name": "nav.about.features",
+              "href": "https://hub.qgis.org/project/overview"
             }
           },
           {
             "type": "second-menu",
             "settings": {
-              "name": "Screenshots and Maps",
-              "href": "/project/overview/#maps-showcase"
+              "name": "nav.about.screenshots",
+              "href": "https://hub.qgis.org/project/overview/#maps-showcase"
             }
           },
           {
             "type": "second-menu",
             "settings": {
-              "name": "Case Studies",
-              "href": "/project/case-studies"
+              "name": "nav.about.case_studies",
+              "href": "https://hub.qgis.org/project/case-studies"
             }
           },
           {
             "type": "second-menu",
             "settings": {
-              "name": "News and Blog",
+              "name": "nav.about.news",
               "href": "https://blog.qgis.org"
             }
           },
           {
             "type": "second-menu",
             "settings": {
-              "name": "Past Releases (Changelog)",
-              "href": "/project/visual-changelogs"
+              "name": "nav.about.past_releases",
+              "href": "https://hub.qgis.org/project/visual-changelogs"
             }
           },
           {
             "type": "second-menu",
             "settings": {
-              "name": "Future Releases (Roadmap)",
-              "href": "/resources/roadmap"
+              "name": "nav.about.future_releases",
+              "href": "https://hub.qgis.org/resources/roadmap"
             }
           },
           {
             "type": "second-menu",
             "settings": {
-              "name": "Sustaining members",
-              "href": "/funding/membership/members"
+              "name": "nav.about.sustaining_members",
+              "href": "https://hub.qgis.org/funding/membership/members"
             }
           },
           {
             "type": "second-menu",
             "settings": {
-              "name": "Contact and Support",
-              "href": "/resources/support"
+              "name": "nav.about.contact_support",
+              "href": "https://hub.qgis.org/resources/support"
             }
           }
         ]

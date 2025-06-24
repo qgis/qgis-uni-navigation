@@ -7,12 +7,12 @@
     {
       "type": "menu",
       "settings": {
-        "name": "About",
+        "name": "nav.about.title",
         "children": [
           {
             "type": "link",
             "settings": {
-              "name": "Features",
+              "name": "nav.about.features",
               "href": "/project/overview",
               "activeTest": "/project/overview"
             }
@@ -20,7 +20,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Screenshots and Maps",
+              "name": "nav.about.screenshots",
               "href": "/project/overview/#maps-showcase",
               "activeTest": "/project/overview/#maps-showcase"
             }
@@ -28,7 +28,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Case Studies",
+              "name": "nav.about.case_studies",
               "href": "/project/case-studies",
               "activeTest": "/project/case-studies"
             }
@@ -36,14 +36,14 @@
           {
             "type": "link",
             "settings": {
-              "name": "News and Blog",
+              "name": "nav.about.news",
               "href": "https://blog.qgis.org"
             }
           },
           {
             "type": "link",
             "settings": {
-              "name": "Past Releases (Changelog)",
+              "name": "nav.about.past_releases",
               "href": "/project/visual-changelogs",
               "activeTest": "/project/visual-changelogs"
             }
@@ -51,7 +51,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Future Releases (Roadmap)",
+              "name": "nav.about.future_releases",
               "href": "/resources/roadmap",
               "activeTest": "/resources/roadmap"
             }
@@ -59,7 +59,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Sustaining members",
+              "name": "nav.about.sustaining_members",
               "href": "/funding/membership/members",
               "activeTest": "/funding/membership/members"
             }
@@ -67,7 +67,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Contact and Support",
+              "name": "nav.about.contact_support",
               "href": "/resources/support",
               "activeTest": "/resources/support"
             }
@@ -78,12 +78,12 @@
     {
       "type": "menu",
       "settings": {
-        "name": "Resources",
+        "name": "nav.resources.title",
         "children": [
           {
             "type": "link",
             "settings": {
-              "name": "Documentation",
+              "name": "nav.resources.documentation",
               "href": "/resources/hub",
               "activeTest": "/resources/hub"
             }
@@ -91,21 +91,21 @@
           {
             "type": "link",
             "settings": {
-              "name": "Resources Hub",
+              "name": "nav.resources.hub",
               "href": "https://hub.qgis.org"
             }
           },
           {
             "type": "link",
             "settings": {
-              "name": "Plugins",
+              "name": "nav.resources.plugins",
               "href": "https://plugins.qgis.org/"
             }
           },
           {
             "type": "link",
             "settings": {
-              "name": "Books",
+              "name": "nav.resources.books",
               "href": "/resources/books",
               "activeTest": "/resources/books"
             }
@@ -113,7 +113,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Certification Programme",
+              "name": "nav.resources.certification",
               "href": "/community/certification",
               "activeTest": "/community/certification"
             }
@@ -121,7 +121,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Visual Style Guide (Logos and Graphics)",
+              "name": "nav.resources.style_guide",
               "href": "/styleguide",
               "activeTest": "/styleguide"
             }
@@ -129,7 +129,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Compliance Reports",
+              "name": "nav.resources.compliance_reports",
               "href": "/resources/reports/",
               "activeTest": "/resources/reports/"
             }
@@ -141,12 +141,12 @@
     {
       "type": "menu",
       "settings": {
-        "name": "Community",
+        "name": "nav.community.title",
         "children": [
           {
             "type": "link",
             "settings": {
-              "name": "Get involved",
+              "name": "nav.community.get_involved",
               "href": "/community/involve",
               "activeTest": "/community/involve"
             }
@@ -154,7 +154,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Meetings",
+              "name": "nav.community.meetings",
               "href": "/community/organisation/meetings/",
               "activeTest": "/community/organisation/meetings/"
             }
@@ -162,7 +162,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "QGIS Foundation",
+              "name": "nav.community.foundation",
               "href": "/community/foundation",
               "activeTest": "/community/foundation"
             }
@@ -170,7 +170,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Project Organisation",
+              "name": "nav.community.organisation",
               "href": "/community/organisation",
               "activeTest": "/community/organisation"
             }
@@ -178,7 +178,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Local User Groups",
+              "name": "nav.community.user_groups",
               "href": "/community/groups",
               "activeTest": "/community/groups"
             }
@@ -186,14 +186,14 @@
           {
             "type": "link",
             "settings": {
-              "name": "QGIS Metrics",
+              "name": "nav.community.metrics",
               "href": "https://analytics.qgis.org"
             }
           },
           {
             "type": "link",
             "settings": {
-              "name": "Members Blog",
+              "name": "nav.community.members_blog",
               "href": "https://planet.qgis.org/"
             }
           }

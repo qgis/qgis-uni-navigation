@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "about": {
+      "title": "Névjegy",
+      "features": "Elemek",
+      "screenshots": "Screenshots and Maps",
+      "case_studies": "Esettanulmányok",
+      "news": "News and Blog", 
+      "past_releases": "Past Releases (Changelog)",
+      "future_releases": "Future Releases (Roadmap)",
+      "sustaining_members": "Sustaining members",
+      "contact_support": "Contact and Support"
+    },
+    "resources": {
+      "title": "Resources",
+      "documentation": "Dokumentáció",
+      "hub": "Resources Hub",
+      "plugins": "Modulok",
+      "books": "Könyvek",
+      "certification": "Tanúsítási program",
+      "style_guide": "Visual Style Guide (Logos and Graphics)",
+      "compliance_reports": "Compliance Reports"
+    },
+    "community": {
+      "title": "Community",
+      "get_involved": "Részvétel",
+      "meetings": "Találkozók",
+      "foundation": "QGIS Foundation",
+      "organisation": "Projekt szervezet",
+      "user_groups": "Local User Groups",
+      "metrics": "QGIS Metrics",
+      "members_blog": "Members Blog"
+    },
+    "buttons": {
+      "download": "Letöltés",
+      "donate": "Donate",
+      "goodies": "Nyalánkságok"
+    },
+    "hub": {
+      "title": "Hub"
+    }
+  }
+} 

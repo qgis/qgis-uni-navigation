@@ -1,0 +1,9 @@
+[main]
+host = https://app.transifex.com
+
+[o:qgis:p:qgis-website:r:qgis-hugo-docs-nav-header]
+file_filter = public/i18n/<lang>.json
+source_file = public/i18n/en.json
+source_lang = en
+type = KEYVALUEJSON 
+resource_name = qgis-hugo-docs-nav-header

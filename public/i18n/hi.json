@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "about": {
+      "title": "बारे में",
+      "features": "विशेषताएँ",
+      "screenshots": "Screenshots and Maps",
+      "case_studies": "केस संवेदनशील",
+      "news": "News and Blog", 
+      "past_releases": "Past Releases (Changelog)",
+      "future_releases": "Future Releases (Roadmap)",
+      "sustaining_members": "Sustaining members",
+      "contact_support": "Contact and Support"
+    },
+    "resources": {
+      "title": "Resources",
+      "documentation": "प्रलेखन",
+      "hub": "Resources Hub",
+      "plugins": "प्लगिंस",
+      "books": "Books",
+      "certification": "Certification Programme",
+      "style_guide": "Visual Style Guide (Logos and Graphics)",
+      "compliance_reports": "Compliance Reports"
+    },
+    "community": {
+      "title": "Community",
+      "get_involved": "Get involved",
+      "meetings": "Meetings",
+      "foundation": "QGIS Foundation",
+      "organisation": "Project Organisation",
+      "user_groups": "Local User Groups",
+      "metrics": "QGIS Metrics",
+      "members_blog": "Members Blog"
+    },
+    "buttons": {
+      "download": "Download",
+      "donate": "Donate",
+      "goodies": "Goodies"
+    },
+    "hub": {
+      "title": "Hub"
+    }
+  }
+} 

@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "about": {
+      "title": "Despre",
+      "features": "Funcțiuni",
+      "screenshots": "Screenshots and Maps",
+      "case_studies": "Studii de Caz",
+      "news": "News and Blog", 
+      "past_releases": "Past Releases (Changelog)",
+      "future_releases": "Future Releases (Roadmap)",
+      "sustaining_members": "Sustaining members",
+      "contact_support": "Contact and Support"
+    },
+    "resources": {
+      "title": "Resources",
+      "documentation": "Documentația",
+      "hub": "Resources Hub",
+      "plugins": "Plugin-urile",
+      "books": "Cărți",
+      "certification": "Programe de Certificare",
+      "style_guide": "Visual Style Guide (Logos and Graphics)",
+      "compliance_reports": "Compliance Reports"
+    },
+    "community": {
+      "title": "Community",
+      "get_involved": "Implicați-vă",
+      "meetings": "Întruniri",
+      "foundation": "QGIS Foundation",
+      "organisation": "Organizare Proiect",
+      "user_groups": "Local User Groups",
+      "metrics": "QGIS Metrics",
+      "members_blog": "Members Blog"
+    },
+    "buttons": {
+      "download": "Descărcați",
+      "donate": "Donați",
+      "goodies": "Produse"
+    },
+    "hub": {
+      "title": "Hub"
+    }
+  }
+} 

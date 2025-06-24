@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "about": {
+      "title": "О проекте",
+      "features": "Возможности",
+      "screenshots": "Скриншоты и карты",
+      "case_studies": "Примеры использования",
+      "news": "Новости и блог", 
+      "past_releases": "Предыдущие релизы (История изменений)",
+      "future_releases": "Будущие релизы (Дорожная карта)",
+      "sustaining_members": "Поддерживающие участники",
+      "contact_support": "Контакты и поддержка"
+    },
+    "resources": {
+      "title": "Ресурсы",
+      "documentation": "Документация",
+      "hub": "Хаб",
+      "plugins": "Плагины",
+      "books": "Книги",
+      "certification": "Программа сертификации",
+      "style_guide": "Руководство по стилю (Логотипы и графика)",
+      "compliance_reports": "Отчеты о соответствии"
+    },
+    "community": {
+      "title": "Сообщество",
+      "get_involved": "Присоединиться",
+      "meetings": "Встречи",
+      "foundation": "Фонд QGIS",
+      "organisation": "Организация проекта",
+      "user_groups": "Местные группы пользователей",
+      "metrics": "Метрики QGIS",
+      "members_blog": "Блог участников"
+    },
+    "buttons": {
+      "download": "Скачать",
+      "donate": "Донат",
+      "goodies": "Мерч"
+    },
+    "hub": {
+      "title": "Хаб"
+    }
+  }
+} 

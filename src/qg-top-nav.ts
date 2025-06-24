@@ -3,6 +3,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { match } from 'path-to-regexp';
 import type { LogoConfig, HeaderConfig, NavigationControl } from './NavConfig';
+import { I18n } from './i18n/i18n';
 
 async function readConfig(src: string): Promise<HeaderConfig> {
   return fetch(src).then((r) => r.json());
@@ -25,33 +26,31 @@ export class QGTopNav extends LitElement {
   @property({ type: String, attribute: 'location-prefix' })
   accessor locationPrefix = '';
 
-  @property({ type: String, attribute: 'second-menu-prefix' })
-  accessor secondMenuPrefix = '';
 
   @state()
   protected config: null | HeaderConfig = null;
   protected buttonConfig: null | HeaderConfig = null;
   protected secondaryConfig: null | HeaderConfig = null;
   protected logo: null | LogoConfig = null;
+  
+  private i18n = new I18n();
 
   async connectedCallback() {
     super.connectedCallback();
     
-    // 🚀 Parallel loading of all configs
-    const configPromises = [
-      readConfig(this.src),
-      readConfig(this.buttonSrc),
-      this.secondaryMenu ? readConfig(this.secondaryMenu) : Promise.resolve(null)
-    ];
-
+    // 🚀 Parallel loading of translations and configs
     try {
-      const [config, buttonConfig, secondaryConfig] = await Promise.all(configPromises);
+      const [config, buttonConfig, secondaryConfig] = await Promise.all([
+        this.i18n.init(`${import.meta.env.BASE_URL}i18n/`).then(() => readConfig(this.src)),
+        readConfig(this.buttonSrc),
+        this.secondaryMenu ? readConfig(this.secondaryMenu) : Promise.resolve(null)
+      ]);
       
       this.config = config;
       this.buttonConfig = buttonConfig;
       this.secondaryConfig = secondaryConfig;
     } catch (error) {
-      console.error('Failed to load navigation configs:', error);
+      console.error('Failed to load navigation configs or translations:', error);
     }
 
     // If the data-screen attribute is set by the user, we don't want to change it automatically
@@ -79,10 +78,39 @@ export class QGTopNav extends LitElement {
     }
   }
 
+  /**
+   * Get translation by key
+   */
+  private t(key: string, params?: Record<string, any>): string {
+    return this.i18n.t(key, params);
+  }
+
+  /**
+   * Creates localized URL by adding language prefix if needed
+   */
+  private localizeUrl(href: string): string {
+    const currentLang = this.i18n.getCurrentLanguage();
+    
+    // Don't add prefix for English (default language)
+    if (currentLang === 'en') {
+      return this.locationPrefix + href;
+    }
+    
+    // Add language prefix for other languages
+    const langPrefix = `/${currentLang}`;
+    
+    // If locationPrefix already contains the language, don't duplicate it
+    if (this.locationPrefix.includes(langPrefix)) {
+      return this.locationPrefix + href;
+    }
+    
+    return this.locationPrefix + langPrefix + href;
+  }
+
   drawLogo() {
     const logo = this.config?.logo ?? null;
     const logoIcon = logo ? `${import.meta.env.BASE_URL}${logo.icon}` : '';
-    const logoLink = logo ? this.locationPrefix + logo.link : '';
+    const logoLink = logo ? this.localizeUrl(logo.link) : '';
     return logo
       ? html`<a class="link logo" style="--logo-img: url('${logoIcon}')" href=${logoLink}>
           <div></div>
@@ -92,8 +120,25 @@ export class QGTopNav extends LitElement {
 
   checkActive(test?: string) {
     if (!test) return false;
+    
+    const currentLang = this.i18n.getCurrentLanguage();
+    const pathname = window.location.pathname;
+        
+    if (currentLang !== 'en') {
+      // Remove language prefix from current path for comparison
+      const langPrefix = `/${currentLang}`;
+      const pathWithoutLang = pathname.startsWith(langPrefix) 
+        ? pathname.substring(langPrefix.length) 
+        : pathname;
+      
+      // Test against the path without language prefix
+      const matcher = match(test, { decode: decodeURIComponent });
+      return matcher(pathWithoutLang) ? true : false;
+    }
+    
+    // For English, test directly
     const matcher = match(test, { decode: decodeURIComponent });
-    return matcher(window.location.pathname) ? true : false;
+    return matcher(pathname) ? true : false;
   }
 
   drawMenu(controls: NavigationControl[] = [], isTopLevel = true): TemplateResult<1> {
@@ -116,20 +161,20 @@ export class QGTopNav extends LitElement {
               target="_blank"
               noopener
               noreferrer
-              >${ctrl.settings.name}</a
+              >${this.t(ctrl.settings.name)}</a
             >`;
           }
 
-          const href = this.locationPrefix + ctrl.settings.href;
-          return html`<a href=${href} class=${linkClasses}>${ctrl.settings.name}</a>`;
+          const href = this.localizeUrl(ctrl.settings.href);
+          return html`<a href=${href} class=${linkClasses}>${this.t(ctrl.settings.name)}</a>`;
         case 'second-menu':
           const secondMenuClasses = classMap({
             link: true,
             external: false,
           });
 
-          const secondMenuHref = this.secondMenuPrefix + ctrl.settings.href;
-          return html`<a href=${secondMenuHref} class=${secondMenuClasses}>${ctrl.settings.name}</a>`;
+          const secondMenuHref = ctrl.settings.href;
+          return html`<a href=${secondMenuHref} class=${secondMenuClasses}>${this.t(ctrl.settings.name)}</a>`;
         case 'menu':
           const menuClasses = classMap({
             menu: true,
@@ -137,15 +182,15 @@ export class QGTopNav extends LitElement {
           });
 
           return html`<div class=${menuClasses} @click=${this._handleClickMobileSubMenu}>
-            <a class="link">${ctrl.settings.name}</a>
+            <a class="link">${this.t(ctrl.settings.name)}</a>
             <div class="dropdown">${this.drawMenu(ctrl.settings.children, false)}</div>
           </div>`;
 
         case 'button':
-          const iconButtonLink = this.locationPrefix + ctrl.settings.href;
+          const iconButtonLink = this.localizeUrl(ctrl.settings.href);
           return html`<div class="button-container"><a href=${iconButtonLink} class="link ${ctrl.settings.class}"
-            ><img src="${ctrl.settings.icon}" alt="${ctrl.settings.name}">
-            <span class="button-text">${ctrl.settings.name}</span>
+            ><img src="${ctrl.settings.icon}" alt="${this.t(ctrl.settings.name)}">
+            <span class="button-text">${this.t(ctrl.settings.name)}</span>
             </a
           ></div>`;
 
