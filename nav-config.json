@@ -183,6 +183,15 @@
               "activeTest": "/community/groups"
             }
           },
+
+          {
+            "type": "link",
+            "settings": {
+              "name": "Contributors",
+              "href": "/community/contributors",
+              "activeTest": "/community/contributors"
+            }
+          },
           {
             "type": "link",
             "settings": {
