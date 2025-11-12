@@ -23,6 +23,8 @@ Then you can use the qg-top-nav element in your HTML as follows:
   location-prefix="https://qgis.org"
   second-menu-prefix="https://hub.qgis.org"
   secondary-menu-config="https://raw.githubusercontent.com/qgis/QGIS-Hub-Website/main/menu-config.json"
+  logo-icon="https://qgis.org/funders/qgis-usergroup-switzerland.png"
+  logo-link="https://uc2025.qgis.org"
 >
 
 </qg-top-nav>

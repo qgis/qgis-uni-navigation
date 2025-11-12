@@ -28,6 +28,13 @@ export class QGTopNav extends LitElement {
   @property({ type: String, attribute: 'second-menu-prefix' })
   accessor secondMenuPrefix = '';
 
+  // Image and link (when clicked) override for logo
+  @property({ type: String, attribute: 'logo-icon' })
+  accessor logoIcon = '';
+
+  @property({ type: String, attribute: 'logo-link' })
+  accessor logoLink = '';
+
   @state()
   protected config: null | HeaderConfig = null;
   protected buttonConfig: null | HeaderConfig = null;
@@ -74,9 +81,9 @@ export class QGTopNav extends LitElement {
 
   drawLogo() {
     const logo = this.config?.logo ?? null;
-    const logoIcon = logo ? `${import.meta.env.BASE_URL}${logo.icon}` : '';
-    const logoLink = logo ? this.locationPrefix + logo.link : '';
-    return logo
+    const logoIcon = this.logoIcon || (logo ? `${import.meta.env.BASE_URL}${logo.icon}` : '');
+    const logoLink = this.logoLink || (logo ? this.locationPrefix + logo.link : '');
+    return logo || this.logoIcon
       ? html`<a class="link logo" style="--logo-img: url('${logoIcon}')" href=${logoLink}>
           <div></div>
         </a>`
