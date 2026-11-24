@@ -178,47 +178,56 @@ All these variables can be used with media queries to create responsive designs,
 
 ## Development
 
-This project require:
-- Node.js@20
-- Pnpm@6
+The dev environment comes from a Nix flake. It gives you Node.js 24 and pnpm 10, so you do not need to install either yourself. You need [Nix](https://nixos.org/download/) with flakes enabled.
 
-Or you can use [devbox](https://www.jetpack.io/devbox/docs/quickstart/), it manage necessary env for you.
-TL;DR:
-```sh
-$ curl -fsSL https://get.jetpack.io/devbox | bash # Run it once for install devbox
-$ devbox run dev # for activate env and run project locally
-```
+1. Enter the dev shell. The first run installs the pnpm dependencies from the lockfile.
 
-Then go to `http://localhost:5173/` to see the component in action.
+   ```sh
+   $ nix develop
+   ```
 
-> Hot reloading is available by default, except `nav-config.json`, you need to restart the server to see the config changes.
+2. Start the dev server.
+
+   ```sh
+   $ dev
+   ```
+
+3. Open `http://localhost:5173/` to see the component.
+
+Run `menu` inside the shell to list every command. If you use [direnv](https://direnv.net/), run `direnv allow` once and the shell loads each time you enter the folder.
+
+> Hot reloading works for everything except `nav-config.json`. Restart the server after you change the config.
 
 
 ## Deployment
 
 ### Building
 
-You can build the component using the following command:
+Run `build` inside the dev shell and pass the base URL of your deployment:
 
 ```sh
-$ devbox run build -- --base=<base-url>
+$ build --base=<base-url>
 ```
 
-To build using the current repo's GitHub page for example:
-
+For example, this builds for the repo's GitHub Pages site:
 
 ```sh
-$ devbox run build -- --base=https://qgis.github.io/qgis-uni-navigation/
+$ build --base=https://qgis.github.io/qgis-uni-navigation/
 ```
 
-This will generate the necessary files in the `dist` directory, which can be deployed to a static file server or a CDN.
-The `base` option should be set to the base URL of the deployment, which is necessary for proper asset loading and routing.
+The build writes its files to `dist/`. You can deploy that folder to any static file server or CDN. Vite needs the `base` URL to load assets and resolve routes correctly.
+
+You can run the same build without entering the shell:
+
+```sh
+$ nix develop --command build --base=https://qgis.github.io/qgis-uni-navigation/
+```
 
 
 ### Deploying to GitHub Pages
 
-If you are using `github-pages` to deploy, you can use the following command:
+To publish `dist/` to the `gh-pages` branch, run this inside the dev shell:
 
 ```sh
-$ devbox run deploy
+$ deploy
 ```
