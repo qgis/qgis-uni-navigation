@@ -43,7 +43,7 @@
           {
             "type": "link",
             "settings": {
-              "name": "Past Releases (Changelog)",
+              "name": "Past Releases (Changelogs)",
               "href": "/project/visual-changelogs",
               "activeTest": "/project/visual-changelogs"
             }
